@@ -16,6 +16,8 @@ background_mode = 2
 sky = SubResource("Sky_wb4bq")
 tonemap_mode = 2
 glow_enabled = true
+adjustment_contrast = 8.0
+adjustment_saturation = 0.01
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_a4j81"]
 size = Vector2(50, 50)
