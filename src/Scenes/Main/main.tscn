@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr1wba8ds1wrl"]
+
+[ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
+[ext_resource type="PackedScene" uid="uid://bgpt77s884jc0" path="res://Scenes/Mansion/mansion.tscn" id="4_syn8j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mke74"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_wb4bq"]
+sky_material = SubResource("ProceduralSkyMaterial_mke74")
+
+[sub_resource type="Environment" id="Environment_28ta0"]
+background_mode = 2
+sky = SubResource("Sky_wb4bq")
+tonemap_mode = 2
+glow_enabled = true
+adjustment_contrast = 8.0
+adjustment_saturation = 0.01
+
+[sub_resource type="BoxMesh" id="BoxMesh_dpoh7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x55sc"]
+albedo_color = Color(0, 0.45098, 0.0980392, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_defi4"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_28ta0")
+
+[node name="Player" parent="." instance=ExtResource("1_dhn0s")]
+
+[node name="PartyBox" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 5.64085, -9.23006)
+mesh = SubResource("BoxMesh_dpoh7")
+surface_material_override/0 = SubResource("StandardMaterial3D_x55sc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PartyBox"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PartyBox/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_defi4")
+
+[node name="Mansion" parent="." instance=ExtResource("4_syn8j")]
