@@ -1,9 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=13 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_mdrjk"]
 [ext_resource type="Texture2D" uid="uid://dsm0euu6b0hay" path="res://center_icon.png" id="2_j1aba"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="2_oygy6"]
-[ext_resource type="PackedScene" uid="uid://bhhbcoyiln28b" path="res://Scenes/Mansion/mansion.tscn" id="4_nk3v8"]
+[ext_resource type="PackedScene" uid="uid://bgpt77s884jc0" path="res://Scenes/Mansion/mansion.tscn" id="4_nk3v8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mke74"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -19,12 +19,6 @@ tonemap_mode = 2
 glow_enabled = true
 adjustment_contrast = 8.0
 adjustment_saturation = 0.01
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_a4j81"]
-size = Vector2(50, 50)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dkl2d"]
-data = PackedVector3Array(25, 0, 25, -25, 0, 25, 25, 0, -25, -25, 0, 25, -25, 0, -25, 25, 0, -25)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_b5sjt"]
 
@@ -48,14 +42,6 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_28ta0")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_a4j81")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_dkl2d")
-
 [node name="Player" type="CharacterBody3D" parent="."]
 floor_max_angle = 1.48353
 script = ExtResource("1_mdrjk")
@@ -72,6 +58,7 @@ shape = SubResource("ConvexPolygonShape3D_mwwip")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84057, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Player/Head"]
+current = true
 script = ExtResource("2_oygy6")
 
 [node name="TextureRect" type="TextureRect" parent="Player/Head/Camera3D"]

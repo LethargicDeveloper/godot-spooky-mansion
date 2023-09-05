@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnjifopxmdu8h"
-path.s3tc="res://.godot/imported/Enterance_palette.png-68a699009f25fc893c0dea73857ed44a.s3tc.ctex"
+uid="uid://by1wd51yqusdk"
+path.s3tc="res://.godot/imported/Entrance_palette.png-37e2dd5c5b7c03b977fdfb919ef7b152.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Assets/Models/Enterance_palette.png"
-dest_files=["res://.godot/imported/Enterance_palette.png-68a699009f25fc893c0dea73857ed44a.s3tc.ctex"]
+source_file="res://Assets/Models/Entrance_palette.png"
+dest_files=["res://.godot/imported/Entrance_palette.png-37e2dd5c5b7c03b977fdfb919ef7b152.s3tc.ctex"]
 
 [params]
 

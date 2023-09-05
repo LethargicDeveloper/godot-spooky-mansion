@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgq1cope721gn"
-path="res://.godot/imported/Enterance.glb-85ed83d451e39842879708e00cda3713.scn"
+uid="uid://cllj5ce7frvnk"
+path="res://.godot/imported/Entrance.glb-4dca39a82caf8aeb37a31de2d12a786d.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Enterance.glb"
-dest_files=["res://.godot/imported/Enterance.glb-85ed83d451e39842879708e00cda3713.scn"]
+source_file="res://Assets/Models/Entrance.glb"
+dest_files=["res://.godot/imported/Entrance.glb-4dca39a82caf8aeb37a31de2d12a786d.scn"]
 
 [params]
 
