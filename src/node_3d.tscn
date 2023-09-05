@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=15 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_mdrjk"]
 [ext_resource type="Texture2D" uid="uid://dsm0euu6b0hay" path="res://center_icon.png" id="2_j1aba"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="2_oygy6"]
+[ext_resource type="PackedScene" uid="uid://bhhbcoyiln28b" path="res://Scenes/Mansion/mansion.tscn" id="4_nk3v8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mke74"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -56,6 +57,7 @@ mesh = SubResource("PlaneMesh_a4j81")
 shape = SubResource("ConcavePolygonShape3D_dkl2d")
 
 [node name="Player" type="CharacterBody3D" parent="."]
+floor_max_angle = 1.48353
 script = ExtResource("1_mdrjk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
@@ -88,7 +90,7 @@ text = "Click the Party Box"
 horizontal_alignment = 1
 
 [node name="PartyBox" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 2.5379, -7.23477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 5.64085, -12.2496)
 mesh = SubResource("BoxMesh_dpoh7")
 surface_material_override/0 = SubResource("StandardMaterial3D_x55sc")
 
@@ -96,3 +98,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x55sc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PartyBox/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_defi4")
+
+[node name="Mansion" parent="." instance=ExtResource("4_nk3v8")]
