@@ -90,7 +90,7 @@ text = "Click the Party Box"
 horizontal_alignment = 1
 
 [node name="PartyBox" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 5.64085, -12.2496)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 5.64085, -9.23006)
 mesh = SubResource("BoxMesh_dpoh7")
 surface_material_override/0 = SubResource("StandardMaterial3D_x55sc")
 
