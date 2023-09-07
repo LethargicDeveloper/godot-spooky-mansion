@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
-[ext_resource type="PackedScene" uid="uid://bgpt77s884jc0" path="res://Scenes/Mansion/mansion.tscn" id="4_syn8j"]
+[ext_resource type="PackedScene" uid="uid://b64p50sum4whh" path="res://Assets/Models/Entrance.glb" id="2_2wqe4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mke74"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,6 +36,7 @@ shadow_enabled = true
 environment = SubResource("Environment_28ta0")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0865093, 6.14933)
 
 [node name="PartyBox" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 5.64085, -9.23006)
@@ -47,4 +48,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x55sc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PartyBox/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_defi4")
 
-[node name="Mansion" parent="." instance=ExtResource("4_syn8j")]
+[node name="Entrance" parent="." instance=ExtResource("2_2wqe4")]
