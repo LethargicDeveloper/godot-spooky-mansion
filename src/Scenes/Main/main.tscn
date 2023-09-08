@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=10 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
 [ext_resource type="PackedScene" uid="uid://b64p50sum4whh" path="res://Assets/Models/Entrance.glb" id="2_2wqe4"]
+[ext_resource type="PackedScene" uid="uid://dn2egpkb6gda0" path="res://Assets/Models/Chandelier.glb" id="3_f5puk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mke74"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -39,7 +40,7 @@ environment = SubResource("Environment_28ta0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0865093, 6.14933)
 
 [node name="PartyBox" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 5.64085, -9.23006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 5.91402, -12.0457)
 mesh = SubResource("BoxMesh_dpoh7")
 surface_material_override/0 = SubResource("StandardMaterial3D_x55sc")
 
@@ -49,3 +50,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_x55sc")
 shape = SubResource("ConcavePolygonShape3D_defi4")
 
 [node name="Entrance" parent="." instance=ExtResource("2_2wqe4")]
+
+[node name="Chandelier" parent="." instance=ExtResource("3_f5puk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272839, 0.000981331, 2.11802)
