@@ -38,6 +38,7 @@ environment = SubResource("Environment_28ta0")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0865093, 6.14933)
+floor_max_angle = 0.872665
 
 [node name="PartyBox" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0247507, 5.91402, -12.0457)

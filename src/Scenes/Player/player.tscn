@@ -14,17 +14,18 @@ floor_max_angle = 1.48353
 script = ExtResource("1_ig4t0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27461, 0)
+transform = Transform3D(0.653056, 0, 0, 0, 1.24316, 0, 0, 0, 0.766223, 0, 1.72616, 0)
 mesh = SubResource("CapsuleMesh_b5sjt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27461, 0)
+transform = Transform3D(0.726602, 0, 0, 0, 1.29402, 0, 0, 0, 0.812295, 0.000459909, 1.75807, -0.0110007)
 shape = SubResource("ConvexPolygonShape3D_mwwip")
 
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84057, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12072, 0)
 current = true
 script = ExtResource("2_iufe5")
 
