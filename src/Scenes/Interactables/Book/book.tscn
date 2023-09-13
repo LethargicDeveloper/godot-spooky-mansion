@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://uvyi5qn8wy2r"]
+
+[ext_resource type="Script" path="res://Scenes/Interactables/Book/BookClickable.gd" id="1_0j80b"]
+[ext_resource type="Script" path="res://Scenes/Interactables/Book/BookText.gd" id="2_yayrm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_f1ym4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfbeq"]
+albedo_color = Color(0.434522, 0.211745, 0.0522758, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_do43k"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Book" type="Node3D"]
+metadata/Content = "I am a book"
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.47489, 0, 0, 0, 0.14569, 0, 0, 0, 0.736038, 0, 0, 0)
+mesh = SubResource("BoxMesh_f1ym4")
+surface_material_override/0 = SubResource("StandardMaterial3D_lfbeq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Mesh"]
+script = ExtResource("1_0j80b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_do43k")
+
+[node name="TextPopup" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CenterBox" type="CenterContainer" parent="TextPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 406.0
+offset_top = 154.0
+offset_right = 706.0
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="TextPopup/CenterBox"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Label" parent="TextPopup/CenterBox"]
+modulate = Color(0.792157, 0, 0, 1)
+layout_mode = 2
+text = "Text 123
+"
+script = ExtResource("2_yayrm")
+
+[node name="Escape" type="Label" parent="TextPopup"]
+offset_left = 665.0
+offset_top = 148.0
+offset_right = 725.0
+offset_bottom = 174.0
+size_flags_horizontal = 8
+text = "R-CLICK"
