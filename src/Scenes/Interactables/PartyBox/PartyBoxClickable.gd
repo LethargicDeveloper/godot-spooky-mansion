@@ -1,10 +1,10 @@
 extends StaticBody3D
 
-@onready var PartyBox = $".."
+@onready var PartyBox := $".."
 
-var rng = RandomNumberGenerator.new()
+var rng := RandomNumberGenerator.new()
 
-func player_interact():
+func player_interact() -> void:
 	var r = rng.randf_range(0, 1)
 	var g = rng.randf_range(0, 1)
 	var b = rng.randf_range(0, 1)
