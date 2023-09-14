@@ -27,9 +27,11 @@ shape = SubResource("ConcavePolygonShape3D_do43k")
 
 [node name="TextPopup" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="CenterBox" type="CenterContainer" parent="TextPopup"]
 layout_mode = 1
@@ -38,10 +40,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 406.0
-offset_top = 154.0
-offset_right = 706.0
-offset_bottom = 454.0
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -59,10 +61,17 @@ text = "Text 123
 script = ExtResource("2_yayrm")
 
 [node name="Escape" type="Label" parent="TextPopup"]
-layout_mode = 0
-offset_left = 665.0
-offset_top = 148.0
-offset_right = 725.0
-offset_bottom = 174.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 89.0
+offset_top = -174.0
+offset_right = 149.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 8
 text = "R-CLICK"
