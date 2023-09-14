@@ -53,4 +53,4 @@ shape = SubResource("ConcavePolygonShape3D_defi4")
 [node name="Entrance" parent="." instance=ExtResource("2_2wqe4")]
 
 [node name="Chandelier" parent="." instance=ExtResource("3_f5puk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.272839, 0.000981331, 2.11802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118545, 11.5135, -5.98212)
