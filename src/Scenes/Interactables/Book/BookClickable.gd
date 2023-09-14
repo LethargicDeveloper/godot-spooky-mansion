@@ -6,9 +6,9 @@ extends StaticBody3D
 func _input(event):
 	if TextPopup.visible and event and event.is_action_pressed("Cancel"):
 		TextPopup.hide()
-		SignalManager.emit_signal("CameraLock", false)
+		SignalManager.CameraLock.emit(false)
 
 func player_interact():
 	if !TextPopup.visible:
 		TextPopup.show()
-		SignalManager.emit_signal("CameraLock", true)
+		SignalManager.CameraLock.emit(true)

@@ -8,7 +8,7 @@ var mouse = Vector2()
 var cameraLocked := false
 
 func _ready():
-	SignalManager.connect("CameraLock", self.HandleCameraLock)
+	SignalManager.CameraLock.connect(self.HandleCameraLock)
 
 func HandleCameraLock(state):
 	cameraLocked = state

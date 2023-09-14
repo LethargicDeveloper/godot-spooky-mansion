@@ -1,3 +1,3 @@
 extends Node
 
-signal CameraLock
+signal CameraLock(lock: bool)

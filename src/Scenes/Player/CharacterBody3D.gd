@@ -11,7 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var cameraLocked := false
 
 func _ready():
-	SignalManager.connect("CameraLock", self.HandleCameraLock)
+	SignalManager.CameraLock.connect(self.HandleCameraLock)
 
 func HandleCameraLock(state):
 	cameraLocked = state
@@ -19,7 +19,7 @@ func HandleCameraLock(state):
 func _input(event) -> void:
 	if cameraLocked:
 		if event.is_action_pressed("Escape"):
-			SignalManager.emit_signal("CameraLock", false)
+			SignalManager.CameraLock.emit(false)
 	else:
 		if event is InputEventMouseButton:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
