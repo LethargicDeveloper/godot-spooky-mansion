@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://vgjnir1f6b4k"]
+
+[ext_resource type="PackedScene" uid="uid://b64p50sum4whh" path="res://Assets/Models/Entrance.glb" id="1_ewbd4"]
+[ext_resource type="PackedScene" uid="uid://dhsxhe6jo05mj" path="res://Scenes/Environment/chandelier.tscn" id="2_bil8c"]
+
+[node name="Entrance" instance=ExtResource("1_ewbd4")]
+
+[node name="Chandelier" parent="." index="1" instance=ExtResource("2_bil8c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 10.7, -6.6)
+
+[node name="RightLights" type="Node3D" parent="." index="2"]
+
+[node name="SmallLight" type="OmniLight3D" parent="RightLights" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48223, 3.69924, -1.86355)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.5
+omni_range = 6.0
+
+[node name="SmallLight2" type="OmniLight3D" parent="RightLights" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4.63613, -3.727)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.5
+omni_range = 6.0
+
+[node name="SmallLight3" type="OmniLight3D" parent="RightLights" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 5.73819, -5.5953)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.5
+omni_range = 6.0
+
+[node name="SmallLight4" type="OmniLight3D" parent="RightLights" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 6.68484, -7.46496)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.5
+omni_range = 6.0
+
+[node name="LargeLight" type="OmniLight3D" parent="RightLights" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.581, 3.891, -0.128437)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+omni_range = 6.0
+
+[node name="LeftLights" type="Node3D" parent="." index="3"]
+
+[node name="SmallLight" type="OmniLight3D" parent="LeftLights" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52753, 3.69924, -1.86355)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.5
+omni_range = 6.0
+
+[node name="SmallLight2" type="OmniLight3D" parent="LeftLights" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50975, 4.63613, -3.727)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.5
+omni_range = 6.0
+
+[node name="SmallLight3" type="OmniLight3D" parent="LeftLights" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50975, 5.73819, -5.5953)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.5
+omni_range = 6.0
+
+[node name="SmallLight4" type="OmniLight3D" parent="LeftLights" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50975, 6.68484, -7.46496)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.5
+omni_range = 6.0
+
+[node name="LargeLight" type="OmniLight3D" parent="LeftLights" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42876, 3.891, -0.128437)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+omni_range = 6.0

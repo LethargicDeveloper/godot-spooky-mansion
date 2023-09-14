@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Player/CharacterBody3D.gd" id="1_ig4t0"]
 [ext_resource type="Script" path="res://Scenes/Player/Camera3D.gd" id="2_iufe5"]
-[ext_resource type="Texture2D" uid="uid://i60c5wbmdud4" path="res://Assets/Icons/reticle.png" id="3_0qxt3"]
+[ext_resource type="Texture2D" uid="uid://oyy5wu7u8egc" path="res://Assets/Icons/reticle.png" id="3_0qxt3"]
 [ext_resource type="Texture2D" uid="uid://5dpor8ipgsxy" path="res://Assets/Icons/reticle_clickable.png" id="4_i0l2c"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_b5sjt"]

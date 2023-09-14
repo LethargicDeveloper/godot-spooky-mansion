@@ -26,7 +26,6 @@ script = ExtResource("1_0j80b")
 shape = SubResource("ConcavePolygonShape3D_do43k")
 
 [node name="TextPopup" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -51,16 +50,16 @@ size_flags_vertical = 4
 [node name="ColorRect" type="ColorRect" parent="TextPopup/CenterBox"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.403922, 0.247059, 0, 1)
 
 [node name="Text" type="Label" parent="TextPopup/CenterBox"]
-modulate = Color(0.792157, 0, 0, 1)
 layout_mode = 2
 text = "Text 123
 "
 script = ExtResource("2_yayrm")
 
 [node name="Escape" type="Label" parent="TextPopup"]
+layout_mode = 0
 offset_left = 665.0
 offset_top = 148.0
 offset_right = 725.0
