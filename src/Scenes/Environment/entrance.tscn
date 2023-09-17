@@ -1,71 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://vgjnir1f6b4k"]
+[gd_scene load_steps=4 format=3 uid="uid://vgjnir1f6b4k"]
 
 [ext_resource type="PackedScene" uid="uid://b64p50sum4whh" path="res://Assets/Models/Entrance.glb" id="1_ewbd4"]
 [ext_resource type="PackedScene" uid="uid://dhsxhe6jo05mj" path="res://Scenes/Environment/chandelier.tscn" id="2_bil8c"]
+[ext_resource type="PackedScene" uid="uid://bj4c2vni6nm80" path="res://Scenes/Environment/CandleLight.tscn" id="3_ysw2t"]
 
 [node name="Entrance" instance=ExtResource("1_ewbd4")]
+
+[node name="Hallway_001" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0970268, 0)
 
 [node name="Chandelier" parent="." index="1" instance=ExtResource("2_bil8c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 10.7, -6.6)
 
 [node name="RightLights" type="Node3D" parent="." index="2"]
 
-[node name="SmallLight" type="OmniLight3D" parent="RightLights" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48223, 3.69924, -1.86355)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-light_energy = 0.5
-omni_range = 6.0
+[node name="CandleLight" parent="RightLights" index="0" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49979, 3.52712, -1.86681)
 
-[node name="SmallLight2" type="OmniLight3D" parent="RightLights" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 4.63613, -3.727)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-light_energy = 0.5
-omni_range = 6.0
+[node name="CandleLight2" parent="RightLights" index="1" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49417, 4.50463, -3.70927)
 
-[node name="SmallLight3" type="OmniLight3D" parent="RightLights" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 5.73819, -5.5953)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-light_energy = 0.5
-omni_range = 6.0
+[node name="CandleLight3" parent="RightLights" index="2" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50184, 5.507, -5.58224)
 
-[node name="SmallLight4" type="OmniLight3D" parent="RightLights" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 6.68484, -7.46496)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-light_energy = 0.5
-omni_range = 6.0
+[node name="CandleLight4" parent="RightLights" index="3" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.48168, 6.49243, -7.44386)
 
-[node name="LargeLight" type="OmniLight3D" parent="RightLights" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.581, 3.891, -0.128437)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-omni_range = 6.0
+[node name="CandleLight5" parent="RightLights" index="4" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.57517, 3.27661, -0.0962562)
 
 [node name="LeftLights" type="Node3D" parent="." index="3"]
 
-[node name="SmallLight" type="OmniLight3D" parent="LeftLights" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.52753, 3.69924, -1.86355)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-light_energy = 0.5
-omni_range = 6.0
+[node name="CandleLight" parent="LeftLights" index="0" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49224, 3.52712, -1.86681)
 
-[node name="SmallLight2" type="OmniLight3D" parent="LeftLights" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50975, 4.63613, -3.727)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-light_energy = 0.5
-omni_range = 6.0
+[node name="CandleLight2" parent="LeftLights" index="1" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49786, 4.50463, -3.70927)
 
-[node name="SmallLight3" type="OmniLight3D" parent="LeftLights" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50975, 5.73819, -5.5953)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-light_energy = 0.5
-omni_range = 6.0
+[node name="CandleLight3" parent="LeftLights" index="2" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49019, 5.507, -5.58224)
 
-[node name="SmallLight4" type="OmniLight3D" parent="LeftLights" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50975, 6.68484, -7.46496)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-light_energy = 0.5
-omni_range = 6.0
+[node name="CandleLight4" parent="LeftLights" index="3" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51036, 6.49243, -7.44386)
 
-[node name="LargeLight" type="OmniLight3D" parent="LeftLights" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.42876, 3.891, -0.128437)
-light_color = Color(0.992157, 0.670588, 0.584314, 1)
-omni_range = 6.0
+[node name="CandleLight5" parent="LeftLights" index="4" instance=ExtResource("3_ysw2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.41686, 3.27661, -0.0962562)
