@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgai8j7c3n4yb"]
+
+[ext_resource type="PackedScene" uid="uid://dhxsh1faq45bd" path="res://Assets/Models/Door.glb" id="1_t040i"]
+[ext_resource type="Script" path="res://Scenes/Interactables/Door/door.gd" id="2_wdxss"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jiq1j"]
+points = PackedVector3Array(1.24638, 0.347104, 0.0331718, 1.22424, 0.176963, -0.0407713, 1.23166, 0.176894, -0.0408033, 1.21675, 0.221175, 0.108301, 1.1467, 0.26964, -0.062782, 1.30922, 0.273328, -0.0627854, 1.30978, 0.254825, 0.0632233, 1.21299, 0.303402, -0.108546, 1.14632, 0.258552, 0.0630762, 1.18771, 0.335445, 0.0621982, 1.2542, 0.303469, 0.10873, 1.21675, 0.221175, -0.108301, 1.26831, 0.188906, 0.0586826, 1.17981, 0.191907, 0.0407231, 1.29052, 0.221803, -0.0809605, 1.19457, 0.340126, -0.0593553, 1.27581, 0.335902, -0.0404834, 1.15111, 0.222047, -0.0365671, 1.3048, 0.306178, 0.0365738, 1.2542, 0.303469, -0.10873, 1.17575, 0.265953, 0.104431, 1.1542, 0.310208, 0.0368616, 1.30146, 0.214498, -0.0367345, 1.27965, 0.254893, 0.103359, 1.16931, 0.214639, -0.076981, 1.17575, 0.265953, -0.104431, 1.21311, 0.188031, 0.0779624, 1.1652, 0.217968, 0.0738114, 1.26497, 0.188241, -0.0629122, 1.29042, 0.310033, 0.07715, 1.16506, 0.302945, -0.0813903, 1.24276, 0.340038, -0.0740737)
+
+[node name="Door" instance=ExtResource("1_t040i")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="DoorHandle" index="0"]
+script = ExtResource("2_wdxss")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DoorHandle/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_jiq1j")
