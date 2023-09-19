@@ -1,31 +1,43 @@
 extends Camera3D
 
-@onready var box := $"../../../PartyBox"
-@onready var box_collider := $"../../../PartyBox/StaticBody3D"
+@onready var reticle := $CenterContainer/Reticle
+@onready var reticle_clickable := $CenterContainer/ReticleClickable
 
-var mouse = Vector2()
+var mouse := Vector2()
+var cameraLocked := false
 
-var rng = RandomNumberGenerator.new()
+func _ready():
+	SignalManager.CameraLock.connect(self.HandleCameraLock)
+
+func HandleCameraLock(state):
+	cameraLocked = state
 
 func _input(event):
+	if cameraLocked:
+		return
+
+	var selection := get_selection()
+	update_cursor(selection)
 	if event is InputEventMouse:
 		mouse = event.position
-	if event is InputEventMouseButton and event.pressed:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			get_selection()
+	if event is InputEventMouseButton and event.is_action_pressed("Interact"):
+		try_interact(selection)
 
-func get_selection():
-	var worldspace = get_world_3d().direct_space_state
-	var start = project_ray_origin(mouse)
-	var end = project_position(mouse, 1000)
-	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
-	if result and result.collider == box_collider:
-		randomBoxColor()
+func get_selection() -> Dictionary:
+	var worldspace := get_world_3d().direct_space_state
+	var start := project_ray_origin(mouse)
+	var end := project_position(mouse, 1000)
+	var result := worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
+	return result
 
-func randomBoxColor():
-	var r = rng.randf_range(0, 1)
-	var g = rng.randf_range(0, 1)
-	var b = rng.randf_range(0, 1)
-	var material = box.get_surface_override_material(0)
-	material.albedo_color = Color(r, g, b)
-	box.set_surface_override_material(0, material)
+func update_cursor(selection: Dictionary) -> void:
+	if selection and selection.collider.has_method("player_interact"):
+		reticle.hide()
+		reticle_clickable.show()
+	else:
+		reticle.show()
+		reticle_clickable.hide()
+
+func try_interact(selection: Dictionary) -> void:
+	if selection and selection.collider.has_method("player_interact"):
+		selection.collider.player_interact()

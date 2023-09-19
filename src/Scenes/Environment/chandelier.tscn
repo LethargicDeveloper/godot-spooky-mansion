@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhsxhe6jo05mj"]
+
+[ext_resource type="PackedScene" uid="uid://dn2egpkb6gda0" path="res://Assets/Models/Chandelier.glb" id="1_6ts06"]
+
+[node name="Chandelier" instance=ExtResource("1_6ts06")]
+
+[node name="CandleLight" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2742, 0)
+light_color = Color(0.992157, 0.670588, 0.584314, 1)
+light_energy = 0.75
+omni_range = 25.0
