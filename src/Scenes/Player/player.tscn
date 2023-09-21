@@ -23,7 +23,7 @@ transform = Transform3D(0.726602, 0, 0, 0, 1.29402, 0, 0, 0, 0.812295, 0.0004599
 shape = SubResource("ConvexPolygonShape3D_mwwip")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84057, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26342, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12072, 0)

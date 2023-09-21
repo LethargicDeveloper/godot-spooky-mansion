@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
-[ext_resource type="PackedScene" uid="uid://vgjnir1f6b4k" path="res://Scenes/Environment/entrance.tscn" id="2_jqseu"]
 [ext_resource type="PackedScene" uid="uid://bieknt6uhfi1c" path="res://Scenes/Interactables/PartyBox/party_box.tscn" id="2_umjcd"]
 [ext_resource type="PackedScene" uid="uid://uvyi5qn8wy2r" path="res://Scenes/Interactables/Book/book.tscn" id="5_7r3l2"]
+[ext_resource type="PackedScene" uid="uid://cr8l56u367g3p" path="res://Scenes/Environment/mansion.tscn" id="5_xdw2q"]
 
 [sub_resource type="Environment" id="Environment_4wx4y"]
 background_mode = 1
@@ -26,8 +26,6 @@ environment = SubResource("Environment_4wx4y")
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0865093, 6.14933)
 floor_max_angle = 0.872665
-
-[node name="Entrance" parent="." instance=ExtResource("2_jqseu")]
 
 [node name="PartyBox" parent="." instance=ExtResource("2_umjcd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64621, 1.57277, 6.71669)
@@ -58,3 +56,11 @@ metadata/Content = "I'm weird"
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10.4924, 7.34091, 3.96071)
 light_energy = 5.0
 spot_range = 10.0
+
+[node name="Mansion" parent="." instance=ExtResource("5_xdw2q")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 24, -52)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.579702, 0.240109, -0.778648, -0.382667, 0.923886, -1.3767e-08, 0.719383, 0.297963, 0.62746, 0, 30.5155, -82.0129)
