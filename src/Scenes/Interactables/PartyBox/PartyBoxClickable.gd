@@ -4,6 +4,9 @@ extends StaticBody3D
 
 var rng := RandomNumberGenerator.new()
 
+func can_interact() -> bool:
+	return true
+
 func player_interact() -> void:
 	var r = rng.randf_range(0, 1)
 	var g = rng.randf_range(0, 1)

@@ -29,7 +29,7 @@ func _input(event: InputEvent) -> void:
 			if event is InputEventMouseMotion:
 				head.rotate_y(-event.relative.x * 0.01)
 				camera.rotate_x(-event.relative.y * 0.01)
-				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(70))
+				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(70))
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

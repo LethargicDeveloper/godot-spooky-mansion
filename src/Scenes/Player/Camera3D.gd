@@ -31,7 +31,7 @@ func get_selection() -> Dictionary:
 	return result
 
 func update_cursor(selection: Dictionary) -> void:
-	if selection and selection.collider.has_method("player_interact"):
+	if selection and selection.collider.has_method("can_interact") and selection.collider.can_interact():
 		reticle.hide()
 		reticle_clickable.show()
 	else:
@@ -39,5 +39,5 @@ func update_cursor(selection: Dictionary) -> void:
 		reticle_clickable.hide()
 
 func try_interact(selection: Dictionary) -> void:
-	if selection and selection.collider.has_method("player_interact"):
+	if selection and selection.collider.has_method("can_interact") and selection.collider.can_interact():
 		selection.collider.player_interact()

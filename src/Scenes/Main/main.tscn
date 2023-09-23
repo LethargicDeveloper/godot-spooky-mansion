@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
 [ext_resource type="PackedScene" uid="uid://bieknt6uhfi1c" path="res://Scenes/Interactables/PartyBox/party_box.tscn" id="2_umjcd"]
 [ext_resource type="PackedScene" uid="uid://uvyi5qn8wy2r" path="res://Scenes/Interactables/Book/book.tscn" id="5_7r3l2"]
-[ext_resource type="PackedScene" uid="uid://cr8l56u367g3p" path="res://Scenes/Environment/mansion.tscn" id="5_xdw2q"]
+[ext_resource type="PackedScene" uid="uid://tb3d62qtcrso" path="res://Scenes/Environment/mansion.tscn" id="5_xdw2q"]
 
 [sub_resource type="Environment" id="Environment_4wx4y"]
 background_mode = 1
@@ -24,7 +24,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 environment = SubResource("Environment_4wx4y")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0865093, 6.14933)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9167, 5.40087, -26.5689)
 floor_max_angle = 0.872665
 
 [node name="PartyBox" parent="." instance=ExtResource("2_umjcd")]
