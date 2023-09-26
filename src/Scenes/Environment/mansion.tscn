@@ -26,14 +26,9 @@ points = PackedVector3Array(1.24638, 0.347104, 0.0331718, 1.22424, 0.176963, -0.
 
 [node name="Mansion" instance=ExtResource("1_1ne3k")]
 
-[node name="Bookshelf" parent="." index="25" node_paths=PackedStringArray("Books", "GoldBook", "GreenBook", "PurpleBook", "MagentaBook", "RedBook")]
+[node name="Bookshelf" parent="." index="25" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
-Books = NodePath("../Books")
-GoldBook = NodePath("../GoldBook")
-GreenBook = NodePath("../GreenBook")
-PurpleBook = NodePath("../PurpleBook")
-MagentaBook = NodePath("../MagentaBook")
-RedBook = NodePath("../RedBook")
+Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
 
 [node name="GoldBook" parent="." index="26"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.97, 8.292, -28.293)

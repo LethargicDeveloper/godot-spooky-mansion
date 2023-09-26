@@ -1,3 +1,5 @@
+class_name GlobalTypes
+
 enum BookType {
 	GOLD,
 	GREEN,

@@ -1,9 +1,7 @@
 extends StaticBody3D
 
-const BookType = preload("res://Scenes/Global/BookType.gd").BookType
-
 @onready var parent = $".."
-@export var type: BookType
+@export var type: GlobalTypes.BookType
 
 var base_position: Vector3
 var isPushed = false
@@ -19,8 +17,8 @@ func player_interact() -> void:
 	if (!isPushed):
 		SignalManager.Puzzle1BookPush.emit(type, true)
 
-func HandleBookPush(bookType: BookType, pushed: bool):
+func HandleBookPush(bookType: GlobalTypes.BookType, pushed: bool):
 	if (bookType == type):
 		isPushed = pushed
-		parent.position.x = base_position.x + (0.1 if isPushed else 0)
+		parent.position.x = base_position.x + (0.1 if isPushed else 0.0)
 		
