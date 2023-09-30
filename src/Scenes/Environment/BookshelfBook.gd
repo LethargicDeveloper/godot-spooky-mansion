@@ -20,5 +20,6 @@ func player_interact() -> void:
 func HandleBookPush(bookType: GlobalTypes.BookType, pushed: bool):
 	if (bookType == type):
 		isPushed = pushed
-		parent.position.x = base_position.x + (0.1 if isPushed else 0.0)
 		
+		var tween = create_tween()
+		tween.parallel().tween_property(parent, "position", base_position + Vector3(0.1 if isPushed else 0, 0, 0), 0.25)

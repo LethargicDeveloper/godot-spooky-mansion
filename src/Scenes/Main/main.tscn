@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
 [ext_resource type="PackedScene" uid="uid://bieknt6uhfi1c" path="res://Scenes/Interactables/PartyBox/party_box.tscn" id="2_umjcd"]
 [ext_resource type="PackedScene" uid="uid://uvyi5qn8wy2r" path="res://Scenes/Interactables/Book/book.tscn" id="5_7r3l2"]
-[ext_resource type="PackedScene" uid="uid://tb3d62qtcrso" path="res://Scenes/Environment/mansion.tscn" id="5_xdw2q"]
+[ext_resource type="PackedScene" uid="uid://b5jrgxlad0x4l" path="res://Scenes/Environment/mansion.tscn" id="5_xdw2q"]
 
 [sub_resource type="Environment" id="Environment_4wx4y"]
 background_mode = 1

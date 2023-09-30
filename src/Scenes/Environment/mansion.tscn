@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://tb3d62qtcrso"]
+[gd_scene load_steps=12 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Interactables/Door/door.gd" id="2_5d52f"]
