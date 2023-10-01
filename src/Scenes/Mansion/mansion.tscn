@@ -1,0 +1,82 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5jrgxlad0x4l"]
+
+[ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
+[ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
+[ext_resource type="Script" path="res://Scenes/Mansion/BookshelfBook.gd" id="3_wbnhl"]
+[ext_resource type="PackedScene" uid="uid://hjpp8j05o4hp" path="res://Scenes/Interactables/Note/note.tscn" id="6_wk641"]
+
+[node name="Mansion" instance=ExtResource("1_1ne3k")]
+
+[node name="bd1_DeskNote_008" parent="." index="14"]
+visible = false
+
+[node name="bd1_DeskNote_007" parent="." index="15"]
+visible = false
+
+[node name="bd1_DeskNote_006" parent="." index="16"]
+visible = false
+
+[node name="bd1_DeskNote_005" parent="." index="17"]
+visible = false
+
+[node name="bd1_DeskNote_004" parent="." index="18"]
+visible = false
+
+[node name="bd1_DeskNote_003" parent="." index="19"]
+visible = false
+
+[node name="bd1_DeskNote_002" parent="." index="20"]
+visible = false
+
+[node name="bd1_DeskNote_001" parent="." index="21"]
+visible = false
+
+[node name="Bookshelf" parent="." index="24" node_paths=PackedStringArray("Books")]
+script = ExtResource("2_5k6i6")
+Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
+
+[node name="StaticBody3D" parent="GoldBook" index="0"]
+script = ExtResource("3_wbnhl")
+
+[node name="StaticBody3D" parent="GreenBook" index="0"]
+script = ExtResource("3_wbnhl")
+type = 1
+
+[node name="StaticBody3D" parent="MagentaBook" index="0"]
+script = ExtResource("3_wbnhl")
+type = 2
+
+[node name="StaticBody3D" parent="PurpleBook" index="0"]
+script = ExtResource("3_wbnhl")
+type = 3
+
+[node name="StaticBody3D" parent="RedBook" index="0"]
+script = ExtResource("3_wbnhl")
+type = 4
+
+[node name="Note" parent="." index="33" instance=ExtResource("6_wk641")]
+transform = Transform3D(0.775694, 0, -0.631109, 0, 1, 0, 0.631109, 0, 0.775694, 13.9937, 7.03008, -28.4747)
+BookContents = "08/06/1897
+
+I made sure to give the butler a piece of my mind today.  I'm not sure how incompetent you have to be to confuse [color=orange]orange[/color] and [color=magenta]magenta[/color] but we obviously want the latter colored cake served first for my cousin's birthday."
+
+[node name="Note2" parent="." index="34" instance=ExtResource("6_wk641")]
+transform = Transform3D(-0.286993, 0, -0.957933, 0, 1, 0, 0.957933, 0, -0.286993, 15.081, 7.03251, -28.5986)
+BookContents = "04/11/1893
+
+Went on a nice walk through the gardens this morning.  The sky was a nice clear [color=#61927b]blue[/color] and I'm starting to see the flowers come in.
+"
+
+[node name="Note3" parent="." index="35" instance=ExtResource("6_wk641")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4973, 7.02906, -28.356)
+BookContents = "03/01/1901
+
+[i]The page is stained by something, only small pieces are legible[/i]
+
+...ervous abo... ...uet we have planned.  I've made su... ...ariety of wi... ...e guests but I know how picky th..."
+
+[node name="Note4" parent="." index="36" instance=ExtResource("6_wk641")]
+transform = Transform3D(0.922646, 0, -0.385648, 0, 1, 0, 0.385648, 0, 0.922646, 15.6887, 7.0325, -28.3587)
+BookContents = "12/19/1996
+
+I don't usually care about things like Christmas but father told me he had a special surprise for me his year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"

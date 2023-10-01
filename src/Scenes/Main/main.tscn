@@ -1,22 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=4 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
-[ext_resource type="PackedScene" uid="uid://bieknt6uhfi1c" path="res://Scenes/Interactables/PartyBox/party_box.tscn" id="2_umjcd"]
-[ext_resource type="PackedScene" uid="uid://uvyi5qn8wy2r" path="res://Scenes/Interactables/Book/book.tscn" id="5_7r3l2"]
-[ext_resource type="PackedScene" uid="uid://b5jrgxlad0x4l" path="res://Scenes/Environment/mansion.tscn" id="5_xdw2q"]
+[ext_resource type="PackedScene" uid="uid://b5jrgxlad0x4l" path="res://Scenes/Mansion/mansion.tscn" id="5_xdw2q"]
 
 [sub_resource type="Environment" id="Environment_4wx4y"]
 background_mode = 1
 ambient_light_color = Color(0.992157, 0.670588, 0.584314, 1)
 ambient_light_energy = 0.05
-
-[sub_resource type="BoxMesh" id="BoxMesh_ma4rq"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er5sl"]
-albedo_color = Color(0.196078, 0.196078, 0.196078, 1)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xi5fr"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Main" type="Node3D"]
 
@@ -26,36 +16,6 @@ environment = SubResource("Environment_4wx4y")
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.9167, 5.40087, -26.5689)
 floor_max_angle = 0.872665
-
-[node name="PartyBox" parent="." instance=ExtResource("2_umjcd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.64621, 1.57277, 6.71669)
-
-[node name="TempTable" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.19052, 0, 0, 0, 2.61896, 0, 0, 0, 1.55912, 8.90852, 0, 1.75798)
-mesh = SubResource("BoxMesh_ma4rq")
-surface_material_override/0 = SubResource("StandardMaterial3D_er5sl")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="TempTable"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TempTable/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_xi5fr")
-
-[node name="SpookyBook" parent="TempTable" instance=ExtResource("5_7r3l2")]
-transform = Transform3D(0.313429, 0, 0, 0, 0.572746, 0, 0, 0, 0.641389, -0.355067, 0.5, 0.134429)
-metadata/Content = "So spooky"
-
-[node name="HappyBook" parent="TempTable" instance=ExtResource("5_7r3l2")]
-transform = Transform3D(0.313429, 0, 0, 0, 0.572746, 0, 0, 0, 0.641389, 0.333219, 0.5, 0.145696)
-metadata/Content = "Sunshine and rainbows"
-
-[node name="WeirdBook" parent="TempTable" instance=ExtResource("5_7r3l2")]
-transform = Transform3D(0.30114, 0.0767221, -0.122547, -0.0728202, 0.36637, -0.102146, 0.0474304, 0.0753751, 0.621231, -0.0166554, 0.5, 0.105839)
-metadata/Content = "I'm weird"
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 10.4924, 7.34091, 3.96071)
-light_energy = 5.0
-spot_range = 10.0
 
 [node name="Mansion" parent="." instance=ExtResource("5_xdw2q")]
 
