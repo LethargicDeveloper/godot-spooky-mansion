@@ -101,30 +101,27 @@ shape = SubResource("ConvexPolygonShape3D_sg5nv")
 
 [node name="Note" parent="." index="33" instance=ExtResource("6_wk641")]
 transform = Transform3D(0.775694, 0, -0.631109, 0, 1, 0, 0.631109, 0, 0.775694, 13.9937, 7.07449, -28.4747)
-BookContents = "08/06/1896
+BookContents = "08/06/1897
 
-I made sure to give the butler a piece of my mind today.  I'm not sure how incompetent you have to be to confuse Orange and Magenta but we obviously want the latter colored cake served first for the celebrations."
+I made sure to give the butler a piece of my mind today.  I'm not sure how incompetent you have to be to confuse [color=orange]orange[/color] and [color=magenta]magenta[/color] but we obviously want the latter colored cake served first for my cousin's birthday."
 
 [node name="Note2" parent="." index="34" instance=ExtResource("6_wk641")]
 transform = Transform3D(-0.286993, 0, -0.957933, 0, 1, 0, 0.957933, 0, -0.286993, 15.081, 7.09786, -28.5986)
-BookContents = "04/11/1898
+BookContents = "04/11/1893
 
-Went on a nice walk through the gardens this morning.  The sky was a nice clear blue and I'm starting to see thin...
-
-[i]The rest is illegible[/i]"
+Went on a nice walk through the gardens this morning.  The sky was a nice clear [color=#61927b]blue[/color] and I'm starting to see the flowers come in.
+"
 
 [node name="Note3" parent="." index="35" instance=ExtResource("6_wk641")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4973, 7.13101, -28.356)
-BookContents = "03/01/1994
+BookContents = "03/01/1901
 
-[i]The page is badly damaged but small pieces are legible[/i]
+[i]The page is stained by something, only small pieces are legible[/i]
 
-...Mak...ure...tock...antry...east...ning
-
-...ladi...defini...ant...dar...gra...serve..."
+...ervous abo... ...uet we have planned.  I've made su... ...ariety of wi... ...e guests but I know how picky th..."
 
 [node name="Note4" parent="." index="36" instance=ExtResource("6_wk641")]
 transform = Transform3D(0.922646, 0, -0.385648, 0, 1, 0, 0.385648, 0, 0.922646, 15.6887, 7.03256, -28.3587)
-BookContents = "12/19/1996
+BookContents = "12/19/1902
 
 I don't usually care about things like Christmas but father told me he had a special surprise for me his year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
