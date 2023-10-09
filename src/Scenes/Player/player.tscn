@@ -16,6 +16,7 @@ script = ExtResource("1_ig4t0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.653056, 0, 0, 0, 1.24316, 0, 0, 0, 0.766223, 0, 1.72616, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_b5sjt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -51,3 +52,12 @@ texture = ExtResource("3_0qxt3")
 visible = false
 position = Vector2(20, 20)
 texture = ExtResource("4_i0l2c")
+
+[node name="DarkScreen" type="ColorRect" parent="Head/Camera3D"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 0.588235)

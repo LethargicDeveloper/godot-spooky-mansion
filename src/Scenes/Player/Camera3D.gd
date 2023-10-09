@@ -2,6 +2,7 @@ extends Camera3D
 
 @onready var reticle := $CenterContainer/Reticle
 @onready var reticle_clickable := $CenterContainer/ReticleClickable
+@onready var dark_screen := $DarkScreen
 
 var mouse := Vector2()
 var cameraLocked := false
@@ -11,6 +12,10 @@ func _ready():
 
 func HandleCameraLock(state):
 	cameraLocked = state
+	if (state == true):
+		dark_screen.show()
+	else:
+		dark_screen.hide()
 
 func _input(event):
 	if cameraLocked:
