@@ -43,6 +43,8 @@ func show_object():
 	Canvas.show()
 	
 func clear():
-	_instance.queue_free()
+	if _instance:
+		_instance.queue_free()
+		_instance = null
 	Canvas.hide()
 	
