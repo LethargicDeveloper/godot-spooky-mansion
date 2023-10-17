@@ -6,7 +6,10 @@ class_name ObjectViewer
 @onready var Canvas := $CanvasLayer
 
 const ROTATION_INCREMENT := 0.03
-const ZOOM_INCREMENT := 0.5
+const ZOOM_INCREMENT := 0.35
+
+const MAX_ZOOM := 2.0
+const MIN_ZOOM := -2.0
 
 var object: MeshInstance3D
 var description: String:
@@ -19,10 +22,12 @@ var _instance: MeshInstance3D = null
 
 func _input(event: InputEvent) -> void:
 	if (is_instance_valid(_instance) and event is InputEventMouseButton):
-		if event.is_action_pressed("zoom in"):
+		if event.is_action_pressed("zoom in") and _instance.position.z <= MAX_ZOOM:
 			_instance.position.z += ZOOM_INCREMENT
-		elif event.is_action_pressed("zoom out"):
+		elif event.is_action_pressed("zoom out") and _instance.position.z >= MIN_ZOOM:
 			_instance.position.z -= ZOOM_INCREMENT
+		elif event.is_action_pressed("Cancel"):
+			clear()
 
 func _physics_process(_delta: float) -> void:
 	if (is_instance_valid(_instance)):
@@ -46,5 +51,6 @@ func clear():
 	if _instance:
 		_instance.queue_free()
 		_instance = null
+	SignalManager.CameraLock.emit(false)
 	Canvas.hide()
 	
