@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5jrgxlad0x4l"]
+[gd_scene load_steps=6 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
 [ext_resource type="Script" path="res://Scenes/Mansion/BookshelfBook.gd" id="3_wbnhl"]
+[ext_resource type="Script" path="res://Scenes/Mansion/mandrake.gd" id="5_21o30"]
 [ext_resource type="PackedScene" uid="uid://hjpp8j05o4hp" path="res://Scenes/Interactables/Note/note.tscn" id="6_wk641"]
 
 [node name="Mansion" instance=ExtResource("1_1ne3k")]
@@ -80,3 +81,7 @@ transform = Transform3D(0.922646, 0, -0.385648, 0, 1, 0, 0.385648, 0, 0.922646, 
 BookContents = "12/19/1996
 
 I don't usually care about things like Christmas but father told me he had a special surprise for me his year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
+
+[node name="StaticBody3D" parent="bd2_Mandrake" index="0" node_paths=PackedStringArray("attached_objects")]
+script = ExtResource("5_21o30")
+attached_objects = [NodePath("../../bd2_Key")]

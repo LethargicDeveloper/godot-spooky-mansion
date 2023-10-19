@@ -31,10 +31,10 @@ func PuzzleComplete() -> void:
 	await get_tree().create_timer(1).timeout
 	
 	var tween = create_tween()
-	tween.parallel().tween_property(self, "position", self.position + Vector3(0, 0, 2), 1)
+	tween.parallel().tween_property(self, "position", self.position + Vector3(0, 0, 3), 1)
 	
 	for book in Books:
-		tween.parallel().tween_property(book, "position", book.position + Vector3(0, 0, 2), 1)
+		tween.parallel().tween_property(book, "position", book.position + Vector3(0, 0, 3), 1)
 
 func ResetBooks() -> void:
 	await get_tree().create_timer(1).timeout
