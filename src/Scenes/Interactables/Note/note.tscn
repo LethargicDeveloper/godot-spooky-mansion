@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://hjpp8j05o4hp"]
+[gd_scene load_steps=8 format=3 uid="uid://b5jf67or7046g"]
 
 [ext_resource type="Script" path="res://Scenes/Interactables/Note/note.gd" id="1_bqt1f"]
 [ext_resource type="Texture2D" uid="uid://ohqv5oorl7uf" path="res://Assets/Models/Mansion_palette.png" id="1_vvcye"]
-[ext_resource type="Script" path="res://Scenes/Interactables/Note/NoteClickable.gd" id="2_0i40q"]
+[ext_resource type="Script" path="res://Scenes/Interactables/ObjectViewer/Viewable.gd" id="3_ubdcy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l74i5"]
 resource_name = "Material.004"
@@ -12,7 +12,7 @@ albedo_texture = ExtResource("1_vvcye")
 roughness = 0.5
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_as4de"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ba11c"]
 _surfaces = [{
 "aabb": AABB(-0.321084, -0.320714, -1.49012e-08, 0.642169, 0.641428, 1.00298e-05),
 "format": 4097,
@@ -40,7 +40,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray(0, 241, 89, 189, 160, 52, 164, 190, 0, 0, 128, 50, 255, 255, 255, 255, 255, 255, 255, 191, 40, 101, 164, 190, 56, 150, 80, 189, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 40, 101, 164, 62, 48, 150, 80, 61, 0, 0, 0, 128, 255, 255, 255, 255, 255, 255, 255, 191, 0, 241, 89, 61, 162, 52, 164, 62, 0, 0, 128, 178, 255, 255, 255, 255, 255, 255, 255, 191)
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_as4de")
+shadow_mesh = SubResource("ArrayMesh_ba11c")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8ctnk"]
 data = PackedVector3Array(-0.0532, -0.3207, 0, 0.0532, 0.3207, 0, -0.3211, -0.0509, 0, -0.0532, -0.3207, 0, 0.3211, 0.0509, 0, 0.0532, 0.3207, 0)
@@ -50,75 +50,16 @@ script = ExtResource("1_bqt1f")
 metadata/Content = "I am a book"
 
 [node name="Note" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, -8.74228e-08, -4.37114e-08, 4.37114e-08, 1.91069e-15, -1, 8.74228e-08, -1, 1.91069e-15, 0, 0, 0)
+transform = Transform3D(-1, -1.50996e-07, 6.60024e-15, 0, -4.37114e-08, -1, 1.50996e-07, -1, 4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_u6pt5")
 skeleton = NodePath("")
 
 [node name="NoteStaticBody" type="StaticBody3D" parent="Note"]
-script = ExtResource("2_0i40q")
+transform = Transform3D(1, 0, 1.67038e-22, 0, 1, 0, 1.67037e-22, 0, 1, 0, 0, 0)
+script = ExtResource("3_ubdcy")
+PositionOverride = Vector3(0, 0, 2.25)
+RotationOverride = Vector3(0, 0, 45)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Note/NoteStaticBody"]
 transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, -3.55271e-15, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_8ctnk")
-
-[node name="TextPopup" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CenterBox" type="CenterContainer" parent="TextPopup"]
-clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -92.0
-offset_right = 150.0
-offset_bottom = 92.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="ColorRect" type="ColorRect" parent="TextPopup/CenterBox"]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 2
-color = Color(0.329412, 0.196078, 0, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="TextPopup/CenterBox"]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-bbcode_enabled = true
-text = "[center]
-Test
-Test
-
-
-ab
-
-123
-[/center]"
-fit_content = true
-scroll_active = false
-
-[node name="Escape" type="Label" parent="TextPopup"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 133.0
-offset_top = -193.0
-offset_right = 193.0
-offset_bottom = -167.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 8
-text = "R-CLICK"

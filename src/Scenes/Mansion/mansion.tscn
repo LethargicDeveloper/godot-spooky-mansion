@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
 [ext_resource type="Script" path="res://Scenes/Mansion/BookshelfBook.gd" id="3_wbnhl"]
-[ext_resource type="Script" path="res://Scenes/Mansion/mandrake.gd" id="5_21o30"]
-[ext_resource type="PackedScene" uid="uid://hjpp8j05o4hp" path="res://Scenes/Interactables/Note/note.tscn" id="6_wk641"]
+[ext_resource type="Script" path="res://Scenes/Interactables/ObjectViewer/Viewable.gd" id="5_um72t"]
+[ext_resource type="PackedScene" uid="uid://b5jf67or7046g" path="res://Scenes/Interactables/Note/note.tscn" id="6_wk641"]
 
 [node name="Mansion" instance=ExtResource("1_1ne3k")]
 
@@ -57,31 +57,32 @@ type = 4
 
 [node name="Note" parent="." index="33" instance=ExtResource("6_wk641")]
 transform = Transform3D(0.775694, 0, -0.631109, 0, 1, 0, 0.631109, 0, 0.775694, 13.9937, 7.03008, -28.4747)
-BookContents = "08/06/1897
+Description = "08/06/1897
 
 I made sure to give the butler a piece of my mind today.  I'm not sure how incompetent you have to be to confuse [color=orange]orange[/color] and [color=magenta]magenta[/color] but we obviously want the latter colored cake served first for my cousin's birthday."
 
 [node name="Note2" parent="." index="34" instance=ExtResource("6_wk641")]
 transform = Transform3D(-0.286993, 0, -0.957933, 0, 1, 0, 0.957933, 0, -0.286993, 15.081, 7.03251, -28.5986)
-BookContents = "04/11/1893
+Description = "04/11/1893
 
-Went on a nice walk through the gardens this morning.  The sky was a nice clear [color=#61927b]blue[/color] and I'm starting to see the flowers come in.
-"
+Went on a nice walk through the gardens this morning.  The sky was a nice clear [color=#61927b]blue[/color] and I'm starting to see the flowers come in."
 
 [node name="Note3" parent="." index="35" instance=ExtResource("6_wk641")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4973, 7.02906, -28.356)
-BookContents = "03/01/1901
+Description = "03/01/1901
 
 [i]The page is stained by something, only small pieces are legible[/i]
 
-...ervous abo... ...uet we have planned.  I've made su... ...ariety of wi... ...e guests but I know how picky th..."
+...ervous abo... ...uet we have planned.  I've made su... ...ariety of [u][b]wi...[/b][/u] ...guests but I know how picky th..."
 
 [node name="Note4" parent="." index="36" instance=ExtResource("6_wk641")]
 transform = Transform3D(0.922646, 0, -0.385648, 0, 1, 0, 0.385648, 0, 0.922646, 15.6887, 7.0325, -28.3587)
-BookContents = "12/19/1996
+Description = "12/19/1996
 
 I don't usually care about things like Christmas but father told me he had a special surprise for me his year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
 
 [node name="StaticBody3D" parent="bd2_Mandrake" index="0" node_paths=PackedStringArray("attached_objects")]
-script = ExtResource("5_21o30")
+script = ExtResource("5_um72t")
+Description = "A simple potted plant."
+PositionOverride = Vector3(0, 0, 2)
 attached_objects = [NodePath("../../bd2_Key")]

@@ -1,8 +1,13 @@
 extends StaticBody3D
 
-@onready var MainNode := $"../.."
+@export_multiline var Description: String
+@export var PositionOverride := Vector3.ZERO
+@export var RotationOverride := Vector3.ZERO
+
 @onready var MeshInstance := $".."
 @onready var object_viewer := get_tree().get_root().get_node("Main/ObjectViewer")
+
+@export var attached_objects: Array[Node3D]
 
 func can_interact() -> bool:
 	return true
@@ -10,7 +15,15 @@ func can_interact() -> bool:
 func player_interact() -> void:
 	SignalManager.CameraLock.connect(self.HandleCameraLock)
 	object_viewer.object = MeshInstance
-	object_viewer.description = "A box!"
+	object_viewer.attached_objects = attached_objects
+
+	if (!PositionOverride.is_zero_approx()):
+		object_viewer.initial_position = PositionOverride
+
+	if (!RotationOverride.is_zero_approx()):
+		object_viewer.initial_rotation = RotationOverride
+
+	object_viewer.description = Description
 	object_viewer.show_object()
 
 func HandleCameraLock(state) -> void:

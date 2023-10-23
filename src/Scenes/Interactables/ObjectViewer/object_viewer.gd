@@ -5,13 +5,17 @@ class_name ObjectViewer
 @onready var ObjectViewport := %SubViewport
 @onready var Canvas := $CanvasLayer
 
-const ROTATION_INCREMENT := 0.03
+const ROTATION_INCREMENT := 0.05
 const ZOOM_INCREMENT := 0.35
 
-const MAX_ZOOM := 2.0
+const MAX_ZOOM := 2.5
 const MIN_ZOOM := -2.0
 
 var object: Node3D
+
+var initial_position := Vector3.ZERO
+var initial_rotation := Vector3.ZERO
+
 var attached_objects: Array[Node3D]
 
 var description: String:
@@ -48,6 +52,11 @@ func show_object():
 	
 	var object_instance = object.duplicate()
 	object_instance.position = Vector3.ZERO
+	object_instance.rotation = Vector3.ZERO
+
+	_instance.position = initial_position
+	_instance.rotation = initial_rotation
+
 	_instance.add_child(object_instance)
 	
 	for attached_object in attached_objects:

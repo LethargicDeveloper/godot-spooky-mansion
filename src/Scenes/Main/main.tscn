@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=5 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
-[ext_resource type="PackedScene" uid="uid://bqme7spfe5gau" path="res://Scenes/Interactables/Viewable/ViewableTest.tscn" id="3_6lo6o"]
 [ext_resource type="PackedScene" uid="uid://oyqol1ndp7g6" path="res://Scenes/Interactables/ObjectViewer/object_viewer.tscn" id="4_f0don"]
 [ext_resource type="PackedScene" uid="uid://b5jrgxlad0x4l" path="res://Scenes/Mansion/mansion.tscn" id="5_xdw2q"]
 
@@ -16,7 +15,7 @@ ambient_light_energy = 0.05
 environment = SubResource("Environment_4wx4y")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2358, 5.40087, -21.5851)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.1745, 5.40087, -21.5851)
 floor_max_angle = 0.872665
 
 [node name="Mansion" parent="." instance=ExtResource("5_xdw2q")]
@@ -26,8 +25,5 @@ transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 24, -52
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.579702, 0.240109, -0.778648, -0.382667, 0.923886, -1.3767e-08, 0.719383, 0.297963, 0.62746, 0, 30.5155, -82.0129)
-
-[node name="ViewableTest" parent="." instance=ExtResource("3_6lo6o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0382, 6.84936, -27.3419)
 
 [node name="ObjectViewer" parent="." instance=ExtResource("4_f0don")]
