@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5jrgxlad0x4l"]
+[gd_scene load_steps=7 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
 [ext_resource type="Script" path="res://Scenes/Mansion/BookshelfBook.gd" id="3_wbnhl"]
+[ext_resource type="Script" path="res://Scenes/Mansion/bd1_DoorHandle.gd" id="4_rw1gx"]
 [ext_resource type="Script" path="res://Scenes/Interactables/ObjectViewer/Viewable.gd" id="5_um72t"]
 [ext_resource type="PackedScene" uid="uid://b5jf67or7046g" path="res://Scenes/Interactables/Note/note.tscn" id="6_wk641"]
 
@@ -34,7 +35,7 @@ visible = false
 
 [node name="Bookshelf" parent="." index="24" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
-Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
+Books = [null, null, null, null, null, null]
 
 [node name="StaticBody3D" parent="GoldBook" index="0"]
 script = ExtResource("3_wbnhl")
@@ -54,6 +55,9 @@ type = 3
 [node name="StaticBody3D" parent="RedBook" index="0"]
 script = ExtResource("3_wbnhl")
 type = 4
+
+[node name="StaticBody3D" parent="bd1_DoorHandle" index="0"]
+script = ExtResource("4_rw1gx")
 
 [node name="Note" parent="." index="33" instance=ExtResource("6_wk641")]
 transform = Transform3D(0.775694, 0, -0.631109, 0, 1, 0, 0.631109, 0, 0.775694, 13.9937, 7.03008, -28.4747)
@@ -85,4 +89,4 @@ I don't usually care about things like Christmas but father told me he had a spe
 script = ExtResource("5_um72t")
 Description = "A simple potted plant."
 PositionOverride = Vector3(0, 0, 2)
-attached_objects = [NodePath("../../bd2_Key")]
+attached_objects = [null]
