@@ -35,7 +35,7 @@ visible = false
 
 [node name="Bookshelf" parent="." index="24" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
-Books = [null, null, null, null, null, null]
+Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
 
 [node name="StaticBody3D" parent="GoldBook" index="0"]
 script = ExtResource("3_wbnhl")
@@ -89,4 +89,4 @@ I don't usually care about things like Christmas but father told me he had a spe
 script = ExtResource("5_um72t")
 Description = "A simple potted plant."
 PositionOverride = Vector3(0, 0, 2)
-attached_objects = [null]
+attached_objects = [NodePath("../../bd2_Key")]
