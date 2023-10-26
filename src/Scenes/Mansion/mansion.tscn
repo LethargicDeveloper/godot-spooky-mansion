@@ -9,6 +9,9 @@
 
 [node name="Mansion" instance=ExtResource("1_1ne3k")]
 
+[node name="Hallway" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23617, 0.0359006, -0.0339421)
+
 [node name="bd1_DeskNote_008" parent="." index="14"]
 visible = false
 
@@ -35,7 +38,7 @@ visible = false
 
 [node name="Bookshelf" parent="." index="24" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
-Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
+Books = [null, null, null, null, null, null]
 
 [node name="StaticBody3D" parent="GoldBook" index="0"]
 script = ExtResource("3_wbnhl")
@@ -89,4 +92,4 @@ I don't usually care about things like Christmas but father told me he had a spe
 script = ExtResource("5_um72t")
 Description = "A simple potted plant."
 PositionOverride = Vector3(0, 0, 2)
-attached_objects = [NodePath("../../bd2_Key")]
+attached_objects = [null]
