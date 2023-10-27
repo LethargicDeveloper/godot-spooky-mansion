@@ -17,31 +17,31 @@ points = PackedVector3Array(-1.23657, -0.1, -1.23657, -1.23657, 0, -1.23657, 1.2
 [node name="Hallway" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23617, 0.0359006, -0.0339421)
 
-[node name="bd1_DeskNote_008" parent="." index="16"]
+[node name="bd1_DeskNote_008" parent="." index="18"]
 visible = false
 
-[node name="bd1_DeskNote_007" parent="." index="17"]
+[node name="bd1_DeskNote_007" parent="." index="19"]
 visible = false
 
-[node name="bd1_DeskNote_006" parent="." index="18"]
+[node name="bd1_DeskNote_006" parent="." index="20"]
 visible = false
 
-[node name="bd1_DeskNote_005" parent="." index="19"]
+[node name="bd1_DeskNote_005" parent="." index="21"]
 visible = false
 
-[node name="bd1_DeskNote_004" parent="." index="20"]
+[node name="bd1_DeskNote_004" parent="." index="22"]
 visible = false
 
-[node name="bd1_DeskNote_003" parent="." index="21"]
+[node name="bd1_DeskNote_003" parent="." index="23"]
 visible = false
 
-[node name="bd1_DeskNote_002" parent="." index="22"]
+[node name="bd1_DeskNote_002" parent="." index="24"]
 visible = false
 
-[node name="bd1_DeskNote_001" parent="." index="23"]
+[node name="bd1_DeskNote_001" parent="." index="25"]
 visible = false
 
-[node name="Bookshelf" parent="." index="26" node_paths=PackedStringArray("Books")]
+[node name="Bookshelf" parent="." index="28" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
 Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
 
@@ -59,13 +59,6 @@ type = 2
 [node name="StaticBody3D" parent="PurpleBook" index="0"]
 script = ExtResource("3_wbnhl")
 type = 3
-
-[node name="StaticBody3D" parent="RedBook" index="0"]
-script = ExtResource("3_wbnhl")
-type = 4
-
-[node name="bd1_Door" parent="." index="32"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8691, 6.94959, -14.3079)
 
 [node name="Note" parent="." index="33" instance=ExtResource("6_wk641")]
 transform = Transform3D(0.775694, 0, -0.631109, 0, 1, 0, 0.631109, 0, 0.775694, 13.9937, 7.03008, -28.4747)
@@ -93,7 +86,14 @@ Description = "12/19/1996
 
 I don't usually care about things like Christmas but father told me he had a special surprise for me his year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
 
-[node name="bd1_DoorHandle" parent="." index="37"]
+[node name="StaticBody3D" parent="RedBook" index="0"]
+script = ExtResource("3_wbnhl")
+type = 4
+
+[node name="bd1_Door" parent="." index="38"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8691, 6.94959, -14.3079)
+
+[node name="bd1_DoorHandle" parent="." index="39"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8642, 6.94959, -14.3114)
 
 [node name="StaticBody3D" parent="bd1_DoorHandle" index="0" node_paths=PackedStringArray("DoorNode")]
