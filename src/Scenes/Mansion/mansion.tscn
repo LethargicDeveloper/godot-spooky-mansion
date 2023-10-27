@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b5jrgxlad0x4l"]
+[gd_scene load_steps=9 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
@@ -7,37 +7,41 @@
 [ext_resource type="Script" path="res://Scenes/Interactables/ObjectViewer/Viewable.gd" id="5_um72t"]
 [ext_resource type="PackedScene" uid="uid://b5jf67or7046g" path="res://Scenes/Interactables/Note/note.tscn" id="6_wk641"]
 [ext_resource type="Script" path="res://Scenes/Mansion/HiddenKey.gd" id="7_ooc3w"]
+[ext_resource type="Script" path="res://Scenes/Mansion/pipe.gd" id="7_qlfn2"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kon8a"]
+points = PackedVector3Array(-1.23657, -0.1, -1.23657, -1.23657, 0, -1.23657, 1.23632, -0.1, -1.23657, -1.23657, -0.1, 1.23657, -1.23657, 0, 1.23657, 1.23632, 0, -1.23657, 1.23657, -0.1, 1.23632, 1.23657, 0, 1.23632)
 
 [node name="Mansion" instance=ExtResource("1_1ne3k")]
 
 [node name="Hallway" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23617, 0.0359006, -0.0339421)
 
-[node name="bd1_DeskNote_008" parent="." index="14"]
+[node name="bd1_DeskNote_008" parent="." index="15"]
 visible = false
 
-[node name="bd1_DeskNote_007" parent="." index="15"]
+[node name="bd1_DeskNote_007" parent="." index="16"]
 visible = false
 
-[node name="bd1_DeskNote_006" parent="." index="16"]
+[node name="bd1_DeskNote_006" parent="." index="17"]
 visible = false
 
-[node name="bd1_DeskNote_005" parent="." index="17"]
+[node name="bd1_DeskNote_005" parent="." index="18"]
 visible = false
 
-[node name="bd1_DeskNote_004" parent="." index="18"]
+[node name="bd1_DeskNote_004" parent="." index="19"]
 visible = false
 
-[node name="bd1_DeskNote_003" parent="." index="19"]
+[node name="bd1_DeskNote_003" parent="." index="20"]
 visible = false
 
-[node name="bd1_DeskNote_002" parent="." index="20"]
+[node name="bd1_DeskNote_002" parent="." index="21"]
 visible = false
 
-[node name="bd1_DeskNote_001" parent="." index="21"]
+[node name="bd1_DeskNote_001" parent="." index="22"]
 visible = false
 
-[node name="Bookshelf" parent="." index="24" node_paths=PackedStringArray("Books")]
+[node name="Bookshelf" parent="." index="25" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
 Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
 
@@ -104,3 +108,132 @@ attached_objects = [NodePath("../../bd2_Key")]
 
 [node name="StaticBody3D" parent="bd2_Key" index="0"]
 script = ExtResource("7_ooc3w")
+attached_objects = [null]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x1" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_1x1/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x4" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_1x4/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x2" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_3x2/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x4" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_2x4/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x1" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_4x1/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x2" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_1x2/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x2" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_4x2/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x1" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_2x1/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x2" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_2x2/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x3" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_3x3/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x4" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_4x4/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x1" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_3x1/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x3" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_4x3/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x3" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_1x3/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x3" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_2x3/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x4" index="0"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("7_qlfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_3x4/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_kon8a")
