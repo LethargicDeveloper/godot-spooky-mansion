@@ -3,12 +3,15 @@ extends Camera3D
 @onready var reticle := $CenterContainer/Reticle
 @onready var reticle_clickable := $CenterContainer/ReticleClickable
 @onready var dark_screen := $DarkScreen
+@onready var KeyIcon := $HBoxContainer/KeyIcon
 
 var mouse := Vector2()
 var cameraLocked := false
+var hasKey := false
 
 func _ready():
 	SignalManager.CameraLock.connect(self.HandleCameraLock)
+	SignalManager.KeyStatus.connect(self.HandleKeyStatus)
 
 func HandleCameraLock(state):
 	cameraLocked = state
@@ -17,6 +20,13 @@ func HandleCameraLock(state):
 	else:
 		dark_screen.hide()
 
+func HandleKeyStatus(state) -> void:
+	hasKey = state
+	if state:
+		KeyIcon.show()
+	else:
+		KeyIcon.hide()
+		
 func _input(event):
 	if cameraLocked:
 		return

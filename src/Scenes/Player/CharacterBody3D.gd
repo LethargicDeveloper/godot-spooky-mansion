@@ -16,6 +16,9 @@ func _ready() -> void:
 func HandleCameraLock(state: bool):
 	cameraLocked = state
 	
+	if (state):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func _input(event: InputEvent) -> void:
 	if cameraLocked:
 		if event.is_action_pressed("Escape"):
