@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5jrgxlad0x4l"]
+[gd_scene load_steps=10 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
@@ -64,10 +64,10 @@ type = 3
 script = ExtResource("3_wbnhl")
 type = 4
 
-[node name="bd1_Door" parent="." index="30"]
+[node name="bd1_Door" parent="." index="31"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8691, 6.94959, -14.3079)
 
-[node name="bd1_DoorHandle" parent="." index="31"]
+[node name="bd1_DoorHandle" parent="." index="32"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8642, 6.94959, -14.3114)
 
 [node name="StaticBody3D" parent="bd1_DoorHandle" index="0" node_paths=PackedStringArray("DoorNode")]
@@ -108,7 +108,6 @@ attached_objects = [NodePath("../../bd2_Key")]
 
 [node name="StaticBody3D" parent="bd2_Key" index="0"]
 script = ExtResource("7_ooc3w")
-attached_objects = [null]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x1" index="0"]
 collision_layer = 2
