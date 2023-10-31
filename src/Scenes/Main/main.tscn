@@ -8,6 +8,8 @@
 background_mode = 1
 ambient_light_color = Color(0.992157, 0.670588, 0.584314, 1)
 ambient_light_energy = 0.05
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
 
 [node name="Main" type="Node3D"]
 
@@ -15,10 +17,11 @@ ambient_light_energy = 0.05
 environment = SubResource("Environment_4wx4y")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8514, 5.40087, -21.5851)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.9152, 5.40087, -20.8794)
 floor_max_angle = 0.872665
 
 [node name="Mansion" parent="." instance=ExtResource("5_xdw2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 24, -52)
