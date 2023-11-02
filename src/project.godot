@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Bgm="*res://Scenes/Global/BGM.tscn"
 SignalManager="*res://Scenes/Global/SignalManager.gd"
 
+[display]
+
+window/size/mode=2
+
 [dotnet]
 
 project/assembly_name="Spooky Puzzle Mansion"

@@ -16,13 +16,8 @@ func player_interact() -> void:
 	SignalManager.CameraLock.connect(self.HandleCameraLock)
 	object_viewer.object = MeshInstance
 	object_viewer.attached_objects = attached_objects
-
-	if (!PositionOverride.is_zero_approx()):
-		object_viewer.initial_position = PositionOverride
-
-	if (!RotationOverride.is_zero_approx()):
-		object_viewer.initial_rotation = RotationOverride
-
+	object_viewer.initial_position = PositionOverride
+	object_viewer.initial_rotation = RotationOverride
 	object_viewer.description = Description
 	object_viewer.show_object()
 

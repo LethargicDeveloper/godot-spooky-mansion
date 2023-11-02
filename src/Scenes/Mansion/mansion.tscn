@@ -45,35 +45,44 @@ visible = false
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder" index="0"]
 script = ExtResource("5_um72t")
-Description = "Test tubes full of various liquids. No doubt used for spooky experiments."
+Description = "[i]Test tubes full of various liquids. No doubt used for spooky experiments.[/i]"
+PositionOverride = Vector3(0, 0, 1.5)
+RotationOverride = Vector3(0, 90, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_ddjjp")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_001" index="0"]
 script = ExtResource("5_um72t")
-Description = "A beaker."
+Description = "[i]A simple beaker.[/i]"
+PositionOverride = Vector3(0, 0, 2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_001/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_oedna")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_002" index="0"]
 script = ExtResource("5_um72t")
-Description = "A pot for making various brews."
+Description = "[i]A simple metal pot, the inside is stained with some kind of liquid[/i]"
+PositionOverride = Vector3(0, 0, 1.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_002/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_epsym")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_003" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("5_um72t")
-Description = "A lovely beaker."
+Description = "[i]A vial containing a colored liquid, something is inscribed on it[/i]
+
+Made by Mr. Spoekeh"
+PositionOverride = Vector3(0, 0, 2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_003/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_oedna")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Icosphere" index="0"]
 script = ExtResource("5_um72t")
-Description = "A mortar and pestle."
+Description = "[i]A mortar and pestle.[/i]"
+PositionOverride = Vector3(0, 0, 2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_a4fel")
@@ -146,30 +155,36 @@ visible = false
 visible = false
 
 [node name="Note" parent="." index="33" instance=ExtResource("6_wk641")]
-transform = Transform3D(0.775694, 0, -0.631109, 0, 1, 0, 0.631109, 0, 0.775694, 13.9937, 7.03008, -28.4747)
-Description = "08/06/1897
+transform = Transform3D(0.782369, 0, -0.622815, 0, 1, 0, 0.622815, 0, 0.782369, 13.9937, 7.03008, -28.4747)
+Description = "[i]It looks like a page from a diary[/i]
+
+08/06/1897
 
 I made sure to give the butler a piece of my mind today.  I'm not sure how incompetent you have to be to confuse [color=orange]orange[/color] and [color=magenta]magenta[/color] but we obviously want the latter colored cake served first for my cousin's birthday."
 
 [node name="Note2" parent="." index="34" instance=ExtResource("6_wk641")]
 transform = Transform3D(-0.286993, 0, -0.957933, 0, 1, 0, 0.957933, 0, -0.286993, 15.081, 7.03251, -28.5986)
-Description = "04/11/1893
+Description = "[i]It looks like a page from a diary[/i]
+
+04/11/1893
 
 Went on a nice walk through the gardens this morning.  The sky was a nice clear [color=#61927b]blue[/color] and I'm starting to see the flowers come in."
 
 [node name="Note3" parent="." index="35" instance=ExtResource("6_wk641")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.4973, 7.02906, -28.356)
-Description = "03/01/1901
+Description = "[i]The page is stained by something, only small pieces are legible[/i]
 
-[i]The page is stained by something, only small pieces are legible[/i]
+03... ...01
 
-...ervous abo... ...uet we have planned.  I've made su... ...ariety of [u][b]wi...[/b][/u] ...guests but I know how picky th..."
+...ervous abo... ...uet we have planned.  I've made su... ...ariety of wi... ...guests but I know how picky th..."
 
 [node name="Note4" parent="." index="36" instance=ExtResource("6_wk641")]
 transform = Transform3D(0.922646, 0, -0.385648, 0, 1, 0, 0.385648, 0, 0.922646, 15.6887, 7.0325, -28.3587)
-Description = "12/19/1996
+Description = "[i]It looks like a page from a diary[/i]
 
-I don't usually care about things like Christmas but father told me he had a special surprise for me his year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
+12/19/1904
+
+I don't usually care about things like Christmas but father told me he had a special surprise for me this year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
 
 [node name="Bookshelf" parent="." index="37" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
@@ -178,21 +193,36 @@ Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../Magenta
 [node name="StaticBody3D" parent="GoldBook" index="0"]
 script = ExtResource("3_wbnhl")
 
+[node name="CollisionShape3D" parent="GoldBook/StaticBody3D" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 0, 0, 0)
+
 [node name="StaticBody3D" parent="GreenBook" index="0"]
 script = ExtResource("3_wbnhl")
 type = 1
+
+[node name="CollisionShape3D" parent="GreenBook/StaticBody3D" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="StaticBody3D" parent="MagentaBook" index="0"]
 script = ExtResource("3_wbnhl")
 type = 2
 
+[node name="CollisionShape3D" parent="MagentaBook/StaticBody3D" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 0, 0, 0)
+
 [node name="StaticBody3D" parent="PurpleBook" index="0"]
 script = ExtResource("3_wbnhl")
 type = 3
 
+[node name="CollisionShape3D" parent="PurpleBook/StaticBody3D" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 0, 0, 0)
+
 [node name="StaticBody3D" parent="RedBook" index="0"]
 script = ExtResource("3_wbnhl")
 type = 4
+
+[node name="CollisionShape3D" parent="RedBook/StaticBody3D" index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="bd1_Door" parent="." index="43"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8691, 6.94959, -14.3079)
@@ -206,11 +236,16 @@ DoorNode = NodePath("../../bd1_Door")
 
 [node name="StaticBody3D" parent="bd2_Book" index="0"]
 script = ExtResource("5_um72t")
-Description = "The Necronomicon."
+Description = "[i]A huge book, something about it seems spooky[/i]
+
+[color=#7F0000]
+Commodo quis imperdiet massa tincidunt nunc. Feugiat scelerisque varius morbi enim. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Turpis cursus in hac habitasse platea dictumst quisque. Diam ut venenatis tellus in. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Quisque non tellus orci ac auctor augue mauris augue.[/color]
+"
+RotationOverride = Vector3(0, 90, 0)
 
 [node name="StaticBody3D" parent="bd2_Mandrake" index="0" node_paths=PackedStringArray("attached_objects")]
 script = ExtResource("5_um72t")
-Description = "A simple potted plant."
+Description = "[i]A strange looking plant[/i]"
 PositionOverride = Vector3(0, 0, 2)
 attached_objects = [NodePath("../../bd2_Key")]
 
