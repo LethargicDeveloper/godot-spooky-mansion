@@ -129,28 +129,28 @@ RotationOverride = Vector3(0, 0, 45)
 transform = Transform3D(1, 0, 0, 0, 1, -7.10543e-15, -3.55271e-15, -7.10543e-15, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_s86oy")
 
-[node name="bd1_DeskNote_008" parent="." index="23"]
+[node name="bd1_DeskNote_008" parent="." index="24"]
 visible = false
 
-[node name="bd1_DeskNote_007" parent="." index="24"]
+[node name="bd1_DeskNote_007" parent="." index="25"]
 visible = false
 
-[node name="bd1_DeskNote_006" parent="." index="25"]
+[node name="bd1_DeskNote_006" parent="." index="26"]
 visible = false
 
-[node name="bd1_DeskNote_005" parent="." index="26"]
+[node name="bd1_DeskNote_005" parent="." index="27"]
 visible = false
 
-[node name="bd1_DeskNote_004" parent="." index="27"]
+[node name="bd1_DeskNote_004" parent="." index="28"]
 visible = false
 
-[node name="bd1_DeskNote_003" parent="." index="28"]
+[node name="bd1_DeskNote_003" parent="." index="29"]
 visible = false
 
-[node name="bd1_DeskNote_002" parent="." index="29"]
+[node name="bd1_DeskNote_002" parent="." index="30"]
 visible = false
 
-[node name="bd1_DeskNote_001" parent="." index="30"]
+[node name="bd1_DeskNote_001" parent="." index="31"]
 visible = false
 
 [node name="Note" parent="." index="33" instance=ExtResource("6_wk641")]
@@ -185,7 +185,7 @@ Description = "[i]It looks like a page from a diary[/i]
 
 I don't usually care about things like Christmas but father told me he had a special surprise for me this year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
 
-[node name="Bookshelf" parent="." index="37" node_paths=PackedStringArray("Books")]
+[node name="Bookshelf" parent="." index="38" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
 Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
 
@@ -223,10 +223,10 @@ type = 4
 [node name="CollisionShape3D" parent="RedBook/StaticBody3D" index="0"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="bd1_Door" parent="." index="43"]
+[node name="bd1_Door" parent="." index="44"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8691, 6.94959, -14.3079)
 
-[node name="bd1_DoorHandle" parent="." index="44"]
+[node name="bd1_DoorHandle" parent="." index="45"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8642, 6.94959, -14.3114)
 
 [node name="StaticBody3D" parent="bd1_DoorHandle" index="0" node_paths=PackedStringArray("DoorNode")]
