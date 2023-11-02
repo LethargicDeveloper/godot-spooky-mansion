@@ -69,7 +69,6 @@ PositionOverride = Vector3(0, 0, 1.5)
 shape = SubResource("ConcavePolygonShape3D_epsym")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_003" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("5_um72t")
 Description = "[i]A vial containing a colored liquid, something is inscribed on it[/i]
 
