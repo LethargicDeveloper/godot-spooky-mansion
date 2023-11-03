@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5jrgxlad0x4l"]
+[gd_scene load_steps=24 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
@@ -39,34 +39,6 @@ points = PackedVector3Array(-1.23657, -0.1, -1.23657, -1.23657, 0, -1.23657, 1.2
 transparency = 1
 albedo_color = Color(0.654902, 0.152941, 0.14902, 0)
 
-[sub_resource type="Animation" id="Animation_xdcua"]
-resource_name = "fill_blood"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material_overlay:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.654902, 0.152941, 0.14902, 0), Color(0.654902, 0.152941, 0.14902, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-5.41094, 2.13632, -34.3931), Vector3(-5.41094, 2.25668, -34.3931)]
-}
-
 [sub_resource type="Animation" id="Animation_wauig"]
 length = 0.001
 tracks/0/type = "value"
@@ -94,9 +66,66 @@ tracks/1/keys = {
 "values": [Vector3(-5.41094, 2.13632, -34.3931)]
 }
 
+[sub_resource type="Animation" id="Animation_mfq1h"]
+resource_name = "empty_blood"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_overlay:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.654902, 0.152941, 0.14902, 0), Color(0.654902, 0.152941, 0.14902, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-5.41094, 2.13632, -34.3931), Vector3(-5.41094, 2.25668, -34.3931)]
+}
+
+[sub_resource type="Animation" id="Animation_xdcua"]
+resource_name = "fill_blood"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_overlay:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.654902, 0.152941, 0.14902, 0), Color(0.654902, 0.152941, 0.14902, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-5.41094, 2.13632, -34.3931), Vector3(-5.41094, 2.25668, -34.3931)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrn81"]
 _data = {
 "RESET": SubResource("Animation_wauig"),
+"empty_blood": SubResource("Animation_mfq1h"),
 "fill_blood": SubResource("Animation_xdcua")
 }
 
@@ -151,6 +180,9 @@ PositionOverride = Vector3(0, 0, 2)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Icosphere/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_a4fel")
+
+[node name="HiddenPassage" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5602, 1.03252, -45.233)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="bd1_Lamp_003" index="0"]
 script = ExtResource("5_um72t")
@@ -317,7 +349,7 @@ attached_objects = [NodePath("../../bd2_Key")]
 [node name="StaticBody3D" parent="bd2_Key" index="0"]
 script = ExtResource("7_ooc3w")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x1" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x1" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -325,7 +357,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_1x1/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x4" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x4" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -333,7 +365,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_1x4/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x2" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x2" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -341,7 +373,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_3x2/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x4" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x4" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -349,7 +381,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_2x4/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x1" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x1" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -357,7 +389,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_4x1/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x2" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x2" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -365,7 +397,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_1x2/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x2" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x2" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -373,7 +405,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_4x2/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x1" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x1" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -381,7 +413,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_2x1/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x2" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x2" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -389,7 +421,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_2x2/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x3" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x3" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -397,7 +429,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_3x3/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x4" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x4" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -405,7 +437,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_4x4/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x1" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x1" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -413,7 +445,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_3x1/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x3" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_4x3" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -421,7 +453,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_4x3/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x3" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_1x3" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -429,7 +461,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_1x3/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x3" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_2x3" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -437,7 +469,7 @@ script = ExtResource("7_qlfn2")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pipe_2x3/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_kon8a")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x4" index="0"]
+[node name="StaticBody3D" type="StaticBody3D" parent="Pipe_3x4" index="0" groups=["pipe"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("7_qlfn2")
@@ -449,6 +481,7 @@ shape = SubResource("ConvexPolygonShape3D_kon8a")
 script = ExtResource("10_oe1oh")
 
 [node name="BloodAlter_Blood" parent="." index="80"]
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -5.41094, 2.13632, -34.3931)
 material_overlay = SubResource("StandardMaterial3D_3atg4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="81"]
@@ -456,3 +489,51 @@ root_node = NodePath("../BloodAlter_Blood")
 libraries = {
 "": SubResource("AnimationLibrary_qrn81")
 }
+
+[node name="Pipe_1x1_blood" parent="." index="82"]
+visible = false
+
+[node name="Pipe_1x2_blood" parent="." index="83"]
+visible = false
+
+[node name="Pipe_1x3_blood" parent="." index="84"]
+visible = false
+
+[node name="Pipe_1x4_blood" parent="." index="85"]
+visible = false
+
+[node name="Pipe_2x1_blood" parent="." index="86"]
+visible = false
+
+[node name="Pipe_2x2_blood" parent="." index="87"]
+visible = false
+
+[node name="Pipe_2x3_blood" parent="." index="88"]
+visible = false
+
+[node name="Pipe_2x4_blood" parent="." index="89"]
+visible = false
+
+[node name="Pipe_3x1_blood" parent="." index="90"]
+visible = false
+
+[node name="Pipe_3x2_blood" parent="." index="91"]
+visible = false
+
+[node name="Pipe_3x3_blood" parent="." index="92"]
+visible = false
+
+[node name="Pipe_3x4_blood" parent="." index="93"]
+visible = false
+
+[node name="Pipe_4x1_blood" parent="." index="94"]
+visible = false
+
+[node name="Pipe_4x2_blood" parent="." index="95"]
+visible = false
+
+[node name="Pipe_4x3_blood" parent="." index="96"]
+visible = false
+
+[node name="Pipe_4x4_blood" parent="." index="97"]
+visible = false

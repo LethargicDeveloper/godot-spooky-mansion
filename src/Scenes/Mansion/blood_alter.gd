@@ -13,3 +13,4 @@ func player_interact() -> void:
 	if (!activated):
 		activated = true
 		player.play("fill_blood")
+		await player.animation_finished

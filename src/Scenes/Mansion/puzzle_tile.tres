@@ -1,0 +1,30 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://cddsjqqs7ymab"]
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_cnhbf"]
+parameter_name = "blood_color"
+default_value_enabled = true
+default_value = Color(0.654902, 0.152941, 0.14902, 1)
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform vec4 blood_color : source_color = vec4(0.654902, 0.152941, 0.149020, 1.000000);
+
+
+
+void fragment() {
+// ColorParameter:2
+	vec4 n_out2p0 = blood_color;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/0/position = Vector2(1060, 60)
+nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_cnhbf")
+nodes/fragment/2/position = Vector2(340, 80)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
