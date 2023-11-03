@@ -17,7 +17,7 @@ volumetric_fog_density = 0.0
 environment = SubResource("Environment_4wx4y")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.14787, 5.40087, -27.1781)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9113, 5.40087, -20.5542)
 floor_max_angle = 0.872665
 
 [node name="Mansion" parent="." instance=ExtResource("5_xdw2q")]

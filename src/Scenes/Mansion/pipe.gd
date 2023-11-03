@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 		rotate_pipe.emit()
 
 func can_interact() -> bool:
-	return true
+	return !SignalManager.puzzle3_complete
 
 func player_interact() -> void:
 	interacted = true

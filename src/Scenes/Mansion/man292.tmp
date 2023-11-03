@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b5jrgxlad0x4l"]
+[gd_scene load_steps=24 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
@@ -79,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0.654902, 0.152941, 0.14902, 1), Color(0.654902, 0.152941, 0.14902, 0)]
+"values": [Color(0.654902, 0.152941, 0.14902, 0), Color(0.654902, 0.152941, 0.14902, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -91,43 +91,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-5.41094, 2.25668, -34.3931), Vector3(-5.41094, 2.13632, -34.3931)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../HiddenPassage:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.4, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-16.5602, 1.03252, -45.233), Vector3(-16.5602, 1.03252, -46.1013), Vector3(-22.8012, 1.03252, -46.1013)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../BloodAlter_Blood_001:material_overlay:albedo_color")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.654902, 0.152941, 0.14902, 0), Color(0.654902, 0.152941, 0.14902, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../BloodAlter_Blood_001:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-10.3959, 2.1219, -46.472), Vector3(-10.396, 2.257, -46.472)]
+"values": [Vector3(-5.41094, 2.13632, -34.3931), Vector3(-5.41094, 2.25668, -34.3931)]
 }
 
 [sub_resource type="Animation" id="Animation_xdcua"]
@@ -164,10 +128,6 @@ _data = {
 "empty_blood": SubResource("Animation_mfq1h"),
 "fill_blood": SubResource("Animation_xdcua")
 }
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q8aj"]
-transparency = 1
-albedo_color = Color(0.654902, 0.152941, 0.14902, 0)
 
 [node name="Mansion" instance=ExtResource("1_1ne3k")]
 script = ExtResource("2_hksi0")
@@ -577,6 +537,3 @@ visible = false
 
 [node name="Pipe_4x4_blood" parent="." index="97"]
 visible = false
-
-[node name="BloodAlter_Blood_001" parent="." index="99"]
-material_overlay = SubResource("StandardMaterial3D_0q8aj")
