@@ -25,8 +25,32 @@ func process_pipe_puzzle() -> void:
 					bloods[pipe_parent] = true
 					blood.show()
 
+				if pipe_parent == "Pipe_1x3":
+					if blood.rotation_degrees.y != 0:
+						bloods[pipe_parent] = true
+						blood.show()
+					else:
+						bloods[pipe_parent] = false
+						blood.hide()
+
 				if pipe_parent == "Pipe_2x2":
 					if blood.rotation_degrees.y == 0 or blood.rotation_degrees.y == 180:
+						bloods[pipe_parent] = true
+						blood.show()
+					else:
+						bloods[pipe_parent] = false
+						blood.hide()
+
+				if pipe_parent == "Pipe_2x3":
+					if blood.rotation_degrees.y == 90 or blood.rotation_degrees.y == 180 and bloods["Pipe_1x3"]:
+						bloods[pipe_parent] = true
+						blood.show()
+					else:
+						bloods[pipe_parent] = false
+						blood.hide()
+
+				if pipe_parent == "Pipe_2x4":
+					if blood.rotation_degrees.y == 180 and bloods["Pipe_1x3"] and bloods["Pipe_2x3"]:
 						bloods[pipe_parent] = true
 						blood.show()
 					else:
@@ -50,7 +74,7 @@ func process_pipe_puzzle() -> void:
 						blood.hide()
 
 				if pipe_parent == "Pipe_3x4":
-					if (blood.rotation_degrees.y == 0 or blood.rotation_degrees.y == 270) and (bloods["Pipe_2x2"] and bloods["Pipe_3x2"] and bloods["Pipe_3x3"]):
+					if ((blood.rotation_degrees.y == 0 or blood.rotation_degrees.y == 270) and (bloods["Pipe_2x2"] and bloods["Pipe_3x2"] and bloods["Pipe_3x3"])) or ((blood.rotation_degrees.y == 90 or blood.rotation_degrees.y == 270) and (bloods["Pipe_1x3"] and bloods["Pipe_2x3"] and bloods["Pipe_2x4"])):
 						bloods[pipe_parent] = true
 						blood.show()
 					else:
@@ -58,7 +82,7 @@ func process_pipe_puzzle() -> void:
 						blood.hide()
 
 				if pipe_parent == "Pipe_4x4":
-					if (blood.rotation_degrees.y == 90 or blood.rotation_degrees.y == 270) and (bloods["Pipe_2x2"] and bloods["Pipe_3x2"] and bloods["Pipe_3x3"] and bloods["Pipe_3x4"]):
+					if (blood.rotation_degrees.y == 90 or blood.rotation_degrees.y == 270) and ((bloods["Pipe_2x2"] and bloods["Pipe_3x2"] and bloods["Pipe_3x3"] and bloods["Pipe_3x4"]) or (bloods["Pipe_1x3"] and bloods["Pipe_2x3"] and bloods["Pipe_2x4"] and bloods["Pipe_3x4"])):
 						bloods[pipe_parent] = true
 						blood.show()
 						
