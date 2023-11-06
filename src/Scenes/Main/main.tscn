@@ -32,6 +32,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.3989, 8.23479, -27.9782)
 light_color = Color(1, 0.611765, 0.337255, 1)
 omni_range = 15.0
 
+[node name="DeskLamp2" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4621, 8.23479, -20.7184)
+light_color = Color(1, 0.611765, 0.337255, 1)
+omni_range = 15.0
+
 [node name="CandleLight" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5083, 10.1519, -28.5705)
 light_color = Color(1, 0.611765, 0.337255, 1)
@@ -206,6 +211,12 @@ omni_range = 10.0
 
 [node name="SpookyLight4" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5528, 4.27504, -51.6342)
+light_color = Color(0.952941, 0, 0, 1)
+light_energy = 0.75
+omni_range = 10.0
+
+[node name="SpookyLight5" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.81283, 5.42159, -46.1203)
 light_color = Color(0.952941, 0, 0, 1)
 light_energy = 0.75
 omni_range = 10.0

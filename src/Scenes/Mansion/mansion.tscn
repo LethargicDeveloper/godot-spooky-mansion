@@ -35,10 +35,6 @@ points = PackedVector3Array(-0.209668, -0.0284737, -0.0399253, 0.209627, -0.0284
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kon8a"]
 points = PackedVector3Array(-1.23657, -0.1, -1.23657, -1.23657, 0, -1.23657, 1.23632, -0.1, -1.23657, -1.23657, -0.1, 1.23657, -1.23657, 0, 1.23657, 1.23632, 0, -1.23657, 1.23657, -0.1, 1.23632, 1.23657, 0, 1.23632)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3atg4"]
-transparency = 1
-albedo_color = Color(0.654902, 0.152941, 0.14902, 0)
-
 [sub_resource type="Animation" id="Animation_wauig"]
 length = 0.001
 tracks/0/type = "value"
@@ -164,6 +160,10 @@ _data = {
 "empty_blood": SubResource("Animation_mfq1h"),
 "fill_blood": SubResource("Animation_xdcua")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3atg4"]
+transparency = 1
+albedo_color = Color(0.654902, 0.152941, 0.14902, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q8aj"]
 transparency = 1
@@ -323,7 +323,15 @@ Description = "[i]It looks like a page from a diary[/i]
 
 I don't usually care about things like Christmas but father told me he had a special surprise for me this year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
 
-[node name="Bookshelf" parent="." index="38" node_paths=PackedStringArray("Books")]
+[node name="StaticBody3D" type="StaticBody3D" parent="bd1_Lamp_004" index="0"]
+script = ExtResource("5_um72t")
+Description = "A lamp."
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bd1_Lamp_004/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.328796, 0.543164, 0)
+shape = SubResource("BoxShape3D_d8vgd")
+
+[node name="Bookshelf" parent="." index="39" node_paths=PackedStringArray("Books")]
 script = ExtResource("2_5k6i6")
 Books = [NodePath("../GoldBook"), NodePath("../GreenBook"), NodePath("../MagentaBook"), NodePath("../PurpleBook"), NodePath("../RedBook"), NodePath("../Books")]
 
@@ -361,10 +369,10 @@ type = 4
 [node name="CollisionShape3D" parent="RedBook/StaticBody3D" index="0"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="bd1_Door" parent="." index="44"]
+[node name="bd1_Door" parent="." index="45"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8691, 6.94959, -14.3079)
 
-[node name="bd1_DoorHandle" parent="." index="45"]
+[node name="bd1_DoorHandle" parent="." index="46"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8642, 6.94959, -14.3114)
 
 [node name="StaticBody3D" parent="bd1_DoorHandle" index="0" node_paths=PackedStringArray("DoorNode")]
@@ -520,63 +528,63 @@ shape = SubResource("ConvexPolygonShape3D_kon8a")
 [node name="StaticBody3D" parent="BloodAlter" index="0"]
 script = ExtResource("10_oe1oh")
 
-[node name="BloodAlter_Blood" parent="." index="80"]
-transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -5.41094, 2.13632, -34.3931)
-material_overlay = SubResource("StandardMaterial3D_3atg4")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="81"]
 root_node = NodePath("../BloodAlter_Blood")
 libraries = {
 "": SubResource("AnimationLibrary_qrn81")
 }
 
-[node name="Pipe_1x1_blood" parent="." index="82"]
+[node name="BloodAlter_Blood" parent="." index="82"]
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -5.41094, 2.13632, -34.3931)
+material_overlay = SubResource("StandardMaterial3D_3atg4")
+
+[node name="Pipe_1x1_blood" parent="." index="83"]
 visible = false
 
-[node name="Pipe_1x2_blood" parent="." index="83"]
+[node name="Pipe_1x2_blood" parent="." index="84"]
 visible = false
 
-[node name="Pipe_1x3_blood" parent="." index="84"]
+[node name="Pipe_1x3_blood" parent="." index="85"]
 visible = false
 
-[node name="Pipe_1x4_blood" parent="." index="85"]
+[node name="Pipe_1x4_blood" parent="." index="86"]
 visible = false
 
-[node name="Pipe_2x1_blood" parent="." index="86"]
+[node name="Pipe_2x1_blood" parent="." index="87"]
 visible = false
 
-[node name="Pipe_2x2_blood" parent="." index="87"]
+[node name="Pipe_2x2_blood" parent="." index="88"]
 visible = false
 
-[node name="Pipe_2x3_blood" parent="." index="88"]
+[node name="Pipe_2x3_blood" parent="." index="89"]
 visible = false
 
-[node name="Pipe_2x4_blood" parent="." index="89"]
+[node name="Pipe_2x4_blood" parent="." index="90"]
 visible = false
 
-[node name="Pipe_3x1_blood" parent="." index="90"]
+[node name="Pipe_3x1_blood" parent="." index="91"]
 visible = false
 
-[node name="Pipe_3x2_blood" parent="." index="91"]
+[node name="Pipe_3x2_blood" parent="." index="92"]
 visible = false
 
-[node name="Pipe_3x3_blood" parent="." index="92"]
+[node name="Pipe_3x3_blood" parent="." index="93"]
 visible = false
 
-[node name="Pipe_3x4_blood" parent="." index="93"]
+[node name="Pipe_3x4_blood" parent="." index="94"]
 visible = false
 
-[node name="Pipe_4x1_blood" parent="." index="94"]
+[node name="Pipe_4x1_blood" parent="." index="95"]
 visible = false
 
-[node name="Pipe_4x2_blood" parent="." index="95"]
+[node name="Pipe_4x2_blood" parent="." index="96"]
 visible = false
 
-[node name="Pipe_4x3_blood" parent="." index="96"]
+[node name="Pipe_4x3_blood" parent="." index="97"]
 visible = false
 
-[node name="Pipe_4x4_blood" parent="." index="97"]
+[node name="Pipe_4x4_blood" parent="." index="98"]
 visible = false
 
-[node name="BloodAlter_Blood_001" parent="." index="99"]
+[node name="BloodAlter_Blood_001" parent="." index="100"]
 material_overlay = SubResource("StandardMaterial3D_0q8aj")
