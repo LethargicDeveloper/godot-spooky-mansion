@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8f8ef4wcm02a"
+path="res://.godot/imported/peter-book of the damned.mp3-d1abbf688c822c5691c66d85ea769eed.mp3str"
+
+[deps]
+
+source_file="res://Assets/Voice/peter-book of the damned.mp3"
+dest_files=["res://.godot/imported/peter-book of the damned.mp3-d1abbf688c822c5691c66d85ea769eed.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

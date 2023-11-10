@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2gxwdhef7ha3"
+path="res://.godot/imported/peter-there you are.mp3-6b13bfec989a8ff508c21d3529d48a45.mp3str"
+
+[deps]
+
+source_file="res://Assets/Voice/peter-there you are.mp3"
+dest_files=["res://.godot/imported/peter-there you are.mp3-6b13bfec989a8ff508c21d3529d48a45.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

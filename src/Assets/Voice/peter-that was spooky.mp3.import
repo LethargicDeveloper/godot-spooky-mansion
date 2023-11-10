@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bijitijl3evb3"
+path="res://.godot/imported/peter-that was spooky.mp3-bb806e1dfcd5122a00605092e014efe2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Voice/peter-that was spooky.mp3"
+dest_files=["res://.godot/imported/peter-that was spooky.mp3-bb806e1dfcd5122a00605092e014efe2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

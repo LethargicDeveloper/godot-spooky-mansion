@@ -1,18 +1,46 @@
 extends Node3D
 
-@onready var Ceiling = $Ceiling
-@onready var BloodAlter = $BloodAlter/StaticBody3D
+@onready var Ceiling := $Ceiling
+@onready var BloodAlter := $BloodAlter/StaticBody3D
+@onready var SpookyBook := $bd2_Book/StaticBody3D
+@onready var SpookySound1 := preload("res://Assets/Voice/devil-i am awoken.wav")
+@onready var SpookySound2 := preload("res://Assets/Voice/peter-that was spooky.mp3")
+@onready var KeyFound := preload("res://Assets/Voice/peter-found key.mp3")
+@onready var inspected_spooky_book: bool = false
+@onready var AudioPlayer := %AudioStreamPlayer
 
 var pipes: Array[Node]
 var bloods: Dictionary
 
 func _ready() -> void:
+	SpookyBook.inspected.connect(on_spooky_book_inspected)
+	SignalManager.KeyStatus.connect(on_key_collected)
+	
 	Ceiling.visible = true
 	pipes = get_tree().get_nodes_in_group("pipe")
 	for pipe in pipes:
 		pipe.rotate_pipe.connect(process_pipe_puzzle)
 		var pipe_parent = pipe.get_parent().name
 		bloods[pipe_parent] = false
+
+func on_key_collected(collected: bool) -> void:
+	if collected:
+		AudioPlayer.set_stream(KeyFound)
+		AudioPlayer.play()
+
+func on_spooky_book_inspected() -> void:
+	if (!inspected_spooky_book):
+		#inspected_spooky_book = true
+		await $AudioStreamPlayer.finished
+		var player = AudioStreamPlayer.new()
+		add_child(player)
+		player.set_stream(SpookySound1)
+		player.play()
+		await player.finished
+		player.set_stream(SpookySound2)
+		player.play()
+		await player.finished
+		player.queue_free()
 
 func process_pipe_puzzle() -> void:
 	if BloodAlter.activated:
@@ -99,3 +127,8 @@ func process_pipe_puzzle() -> void:
 				var pipe_parent = pipe.get_parent().name
 				var blood = get_node(pipe_parent + "_blood")
 				blood.hide()
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.name == "Player":
+		pass

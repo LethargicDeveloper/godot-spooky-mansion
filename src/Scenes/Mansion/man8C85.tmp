@@ -229,6 +229,7 @@ shape = SubResource("ConcavePolygonShape3D_ddjjp")
 script = ExtResource("5_um72t")
 Description = "[i]A simple beaker.[/i]"
 PositionOverride = Vector3(0, 0, 2)
+RotationOverride = null
 Voice = ExtResource("5_61hmk")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 
@@ -239,6 +240,7 @@ shape = SubResource("ConcavePolygonShape3D_oedna")
 script = ExtResource("5_um72t")
 Description = "[i]A simple metal pot, the inside is stained with some kind of liquid[/i]"
 PositionOverride = Vector3(0, 0, 1.5)
+RotationOverride = null
 Voice = ExtResource("6_6lc8y")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 
@@ -251,6 +253,7 @@ Description = "[i]A vial containing a colored liquid, something is inscribed on 
 
 Made by Mr. Spoekeh"
 PositionOverride = Vector3(0, 0, 2)
+RotationOverride = null
 Voice = ExtResource("6_jjcf5")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 
@@ -261,6 +264,7 @@ shape = SubResource("ConcavePolygonShape3D_oedna")
 script = ExtResource("5_um72t")
 Description = "[i]A mortar and pestle.[/i]"
 PositionOverride = Vector3(0, 0, 2)
+RotationOverride = null
 Voice = ExtResource("7_j36jb")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 
@@ -273,6 +277,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5602, 1.03252, -45.233)
 [node name="StaticBody3D" type="StaticBody3D" parent="bd1_Lamp_003" index="0" node_paths=PackedStringArray("AudioPlayer")]
 script = ExtResource("5_um72t")
 Description = "A lamp."
+PositionOverride = null
+RotationOverride = null
 Voice = ExtResource("8_mdkwn")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 
@@ -283,6 +289,8 @@ shape = SubResource("BoxShape3D_d8vgd")
 [node name="StaticBody3D" type="StaticBody3D" parent="bd1_Lamp_002" index="0" node_paths=PackedStringArray("AudioPlayer")]
 script = ExtResource("5_um72t")
 Description = "A lamp."
+PositionOverride = null
+RotationOverride = null
 Voice = ExtResource("8_mdkwn")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 
@@ -293,6 +301,8 @@ shape = SubResource("BoxShape3D_d8vgd")
 [node name="StaticBody3D" type="StaticBody3D" parent="bd1_Lamp_001" index="0" node_paths=PackedStringArray("AudioPlayer")]
 script = ExtResource("5_um72t")
 Description = "A lamp."
+PositionOverride = null
+RotationOverride = null
 Voice = ExtResource("8_mdkwn")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 
@@ -303,6 +313,8 @@ shape = SubResource("BoxShape3D_d8vgd")
 [node name="StaticBody3D" type="StaticBody3D" parent="bd1_InkPot" index="0" node_paths=PackedStringArray("AudioPlayer", "attached_objects")]
 script = ExtResource("5_um72t")
 Description = "A spooky quill and ink pot."
+PositionOverride = null
+RotationOverride = null
 Voice = ExtResource("10_7iumu")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 attached_objects = [NodePath("../../bd1_Quill")]
@@ -390,6 +402,8 @@ AudioPlayer = NodePath("../AudioStreamPlayer")
 [node name="StaticBody3D" type="StaticBody3D" parent="bd1_Lamp_004" index="0" node_paths=PackedStringArray("AudioPlayer")]
 script = ExtResource("5_um72t")
 Description = "A lamp."
+PositionOverride = null
+RotationOverride = null
 Voice = ExtResource("8_mdkwn")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 
@@ -452,6 +466,7 @@ Description = "[i]A huge book, something about it seems spooky[/i]
 [color=#7F0000]
 Commodo quis imperdiet massa tincidunt nunc. Feugiat scelerisque varius morbi enim. Enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra. Turpis cursus in hac habitasse platea dictumst quisque. Diam ut venenatis tellus in. Bibendum ut tristique et egestas quis ipsum suspendisse ultrices gravida. Quisque non tellus orci ac auctor augue mauris augue.[/color]
 "
+PositionOverride = null
 RotationOverride = Vector3(0, 90, 0)
 Voice = ExtResource("14_nsai0")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
@@ -460,6 +475,7 @@ AudioPlayer = NodePath("../../AudioStreamPlayer")
 script = ExtResource("5_um72t")
 Description = "[i]A strange looking plant[/i]"
 PositionOverride = Vector3(0, 0, 2)
+RotationOverride = null
 Voice = ExtResource("14_tjmwx")
 AudioPlayer = NodePath("../../AudioStreamPlayer")
 attached_objects = [NodePath("../../bd2_Key")]
