@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var Player: CharacterBody3D
+
 @onready var Ceiling := $Ceiling
 @onready var BloodAlter := $BloodAlter/StaticBody3D
 @onready var SpookyBook := $bd2_Book/StaticBody3D
@@ -8,6 +10,10 @@ extends Node3D
 @onready var KeyFound := preload("res://Assets/Voice/peter-found key.mp3")
 @onready var inspected_spooky_book: bool = false
 @onready var AudioPlayer := %AudioStreamPlayer
+@onready var AnimPlayer := $AnimationPlayer
+
+var game_over: bool = false
+var ready_to_die: bool = false
 
 var pipes: Array[Node]
 var bloods: Dictionary
@@ -130,5 +136,26 @@ func process_pipe_puzzle() -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.name == "Player":
-		pass
+	if body.name == "Player" and not game_over:
+		game_over = true
+		AnimPlayer.play("game_over")
+		await AnimPlayer.animation_finished
+		ready_to_die = true
+		
+func pickup_cup() -> void:
+	var chalice = $Chalice
+	var blood = $Chalice_Blood
+	var diff = blood.position - chalice.position
+	
+	chalice.reparent($Brother/Marker3D)
+	chalice.position = Vector3.ZERO
+	
+	blood.reparent(chalice)
+	blood.position = diff
+
+func _on_ready_to_die_body_entered(body: Node3D) -> void:
+	if body.name == "Player" and ready_to_die:
+		# TODO:
+		var audio = load("res://Assets/Voice/peter-ugh.mp3")
+		$AudioStreamPlayer.set_stream(audio)
+		$AudioStreamPlayer.play()

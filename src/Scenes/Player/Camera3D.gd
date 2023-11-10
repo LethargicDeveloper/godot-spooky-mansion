@@ -12,6 +12,13 @@ var hasKey := false
 func _ready():
 	SignalManager.CameraLock.connect(self.HandleCameraLock)
 	SignalManager.KeyStatus.connect(self.HandleKeyStatus)
+	SignalManager.GameOver.connect(self.HandleGameOver)
+
+func HandleGameOver():
+	$CenterContainer.hide()
+	$HBoxContainer.hide()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	set_process_input(false)
 
 func HandleCameraLock(state):
 	cameraLocked = state

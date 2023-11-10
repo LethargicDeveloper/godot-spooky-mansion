@@ -1,8 +1,8 @@
 extends StaticBody3D
 
-@onready var parent = $".."
-@onready var BloodPool = $"../../BloodAlter_Blood"
-@onready var player = $"../../AnimationPlayer"
+@onready var parent := $".."
+@onready var BloodPool := $"../../BloodAlter_Blood"
+@onready var player := $"../../AnimationPlayer"
 
 var activated = false
 

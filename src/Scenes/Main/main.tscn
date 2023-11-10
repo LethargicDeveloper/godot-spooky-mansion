@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=6 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
 [ext_resource type="PackedScene" uid="uid://oyqol1ndp7g6" path="res://Scenes/Interactables/ObjectViewer/object_viewer.tscn" id="4_f0don"]
@@ -11,17 +11,27 @@ ambient_light_energy = 0.05
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6xvs3"]
+size = Vector3(3.2433, 1, 6.83463)
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4wx4y")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4388, 4.72143, -20.6999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8477, 4.72143, -20.6999)
 floor_max_angle = 0.872665
 
-[node name="Mansion" parent="." instance=ExtResource("5_xdw2q")]
+[node name="Mansion" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_xdw2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+Player = NodePath("../Player")
+
+[node name="ReadyToDie" type="Area3D" parent="Mansion"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mansion/ReadyToDie"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.714089, 2.19104, -56.5013)
+shape = SubResource("BoxShape3D_6xvs3")
 
 [node name="ObjectViewer" parent="." instance=ExtResource("4_f0don")]
 
@@ -204,13 +214,43 @@ light_energy = 0.5
 omni_range = 10.0
 
 [node name="SpookyLight3" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469597, 4.27504, -56.6122)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469597, 5.86781, -56.0587)
 light_color = Color(0.952941, 0, 0, 1)
 light_energy = 0.75
 omni_range = 10.0
 
 [node name="SpookyLight4" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5528, 4.27504, -51.6342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9589, 4.27504, -52.4835)
+light_color = Color(0.952941, 0, 0, 1)
+light_energy = 2.489
+omni_range = 10.0
+
+[node name="SpookyLight8" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.5569, 4.27504, -62.3492)
+light_color = Color(0.952941, 0, 0, 1)
+light_energy = 2.489
+omni_range = 10.0
+
+[node name="SpookyLight10" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1248, 4.27504, -61.334)
+light_color = Color(0.952941, 0, 0, 1)
+light_energy = 2.489
+omni_range = 10.0
+
+[node name="SpookyLight11" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201541, 4.27504, -61.334)
+light_color = Color(0.952941, 0, 0, 1)
+light_energy = 2.489
+omni_range = 10.0
+
+[node name="SpookyLight6" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.56366, 4.27504, -55.0119)
+light_color = Color(0.952941, 0, 0, 1)
+light_energy = 0.75
+omni_range = 10.0
+
+[node name="SpookyLight7" type="OmniLight3D" parent="Lighting"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22815, 4.94886, -49.1081)
 light_color = Color(0.952941, 0, 0, 1)
 light_energy = 0.75
 omni_range = 10.0
@@ -220,3 +260,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.81283, 5.42159, -46.1203)
 light_color = Color(0.952941, 0, 0, 1)
 light_energy = 0.75
 omni_range = 10.0
+
+[connection signal="body_entered" from="Mansion/ReadyToDie" to="Mansion" method="_on_ready_to_die_body_entered"]
