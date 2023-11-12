@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bou7iu463yv1"
+path="res://.godot/imported/mason-hurry up.mp3-f49c52708897843991f03078ed1f5d52.mp3str"
+
+[deps]
+
+source_file="res://Assets/Voice/mason-hurry up.mp3"
+dest_files=["res://.godot/imported/mason-hurry up.mp3-f49c52708897843991f03078ed1f5d52.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

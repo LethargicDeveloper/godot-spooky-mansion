@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjcyvptt212ts"
+path="res://.godot/imported/mason-this may sting a little.mp3-f9f30a38f36ac8c9afe7cf3e60873c51.mp3str"
+
+[deps]
+
+source_file="res://Assets/Voice/mason-this may sting a little.mp3"
+dest_files=["res://.godot/imported/mason-this may sting a little.mp3-f9f30a38f36ac8c9afe7cf3e60873c51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
