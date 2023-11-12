@@ -13,11 +13,11 @@ var cameraLocked := false
 
 func _ready() -> void:
 	SignalManager.CameraLock.connect(self.HandleCameraLock)
-	SignalManager.GameOver.connect(self.HandleGameOver)
+	SignalManager.LockScreen.connect(self.HandleLockScreen)
 
-func HandleGameOver() -> void:
-	set_process_input(false)
-	set_physics_process(false)
+func HandleLockScreen(lock: bool) -> void:
+	set_process_input(!lock)
+	set_physics_process(!lock)
 
 func HandleCameraLock(state: bool):
 	cameraLocked = state

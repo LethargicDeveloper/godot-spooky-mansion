@@ -17,11 +17,15 @@ func HandleKeyStatus(state) -> void:
 	canOpen = state
 
 func can_interact() -> bool:
-	return canOpen and !opened
+	return true
 
 func player_interact() -> void:
 	if (canOpen and !opened):
 		open_door()
+	else:
+		var stream = preload("res://Assets/Voice/peter-the door is locked.mp3")
+		%AudioStreamPlayer.set_stream(stream)
+		%AudioStreamPlayer.play()
 	
 func open_door() -> void:
 	opened = true

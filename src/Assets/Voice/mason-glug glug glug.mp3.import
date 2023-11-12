@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b6x57cbekq161"
+path="res://.godot/imported/mason-glug glug glug.mp3-cab73bcc83bd696cd07890aaedce5913.mp3str"
+
+[deps]
+
+source_file="res://Assets/Voice/mason-glug glug glug.mp3"
+dest_files=["res://.godot/imported/mason-glug glug glug.mp3-cab73bcc83bd696cd07890aaedce5913.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

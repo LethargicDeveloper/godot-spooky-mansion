@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=8 format=3 uid="uid://cr1wba8ds1wrl"]
 
+[ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_8bv5e"]
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
 [ext_resource type="PackedScene" uid="uid://oyqol1ndp7g6" path="res://Scenes/Interactables/ObjectViewer/object_viewer.tscn" id="4_f0don"]
 [ext_resource type="PackedScene" uid="uid://b5jrgxlad0x4l" path="res://Scenes/Mansion/mansion.tscn" id="5_xdw2q"]
@@ -14,7 +15,11 @@ volumetric_fog_density = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_6xvs3"]
 size = Vector3(3.2433, 1, 6.83463)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ko1m"]
+size = Vector3(21.8679, 1, 1)
+
 [node name="Main" type="Node3D"]
+script = ExtResource("1_8bv5e")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4wx4y")
@@ -261,4 +266,13 @@ light_color = Color(0.952941, 0, 0, 1)
 light_energy = 0.75
 omni_range = 10.0
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8676, 5.80732, -28.7683)
+shape = SubResource("BoxShape3D_3ko1m")
+
 [connection signal="body_entered" from="Mansion/ReadyToDie" to="Mansion" method="_on_ready_to_die_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
