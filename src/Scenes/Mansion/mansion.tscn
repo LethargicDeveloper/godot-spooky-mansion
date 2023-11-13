@@ -1,8 +1,9 @@
-[gd_scene load_steps=45 format=3 uid="uid://b5jrgxlad0x4l"]
+[gd_scene load_steps=46 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
 [ext_resource type="Script" path="res://Scenes/Mansion/mansion.gd" id="2_hksi0"]
+[ext_resource type="Script" path="res://Scenes/Mansion/FrontDoor.gd" id="3_w4yb8"]
 [ext_resource type="Script" path="res://Scenes/Mansion/BookshelfBook.gd" id="3_wbnhl"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle2Door.gd" id="4_oruvf"]
 [ext_resource type="AudioStream" uid="uid://dcse2k3g3adbe" path="res://Assets/Voice/peter-test tubes.mp3" id="4_xksx0"]
@@ -18,12 +19,12 @@
 [ext_resource type="AudioStream" uid="uid://c1ktc3cjy2ntc" path="res://Assets/Voice/peter-quill.mp3" id="10_7iumu"]
 [ext_resource type="Script" path="res://Scenes/Mansion/blood_alter.gd" id="10_oe1oh"]
 [ext_resource type="AudioStream" uid="uid://bam4dvv3y6irc" path="res://Assets/Voice/peter-dusty book.mp3" id="11_x1kw8"]
-[ext_resource type="AudioStream" uid="uid://dvaaq5q2ah5sa" path="res://Assets/Voice/peter-note1.mp3" id="13_6ajft"]
+[ext_resource type="AudioStream" uid="uid://oeb81gyxtkk8" path="res://Assets/Voice/note-1.mp3" id="13_k41fu"]
+[ext_resource type="AudioStream" uid="uid://f2f711qgb4gv" path="res://Assets/Voice/note-3.mp3" id="14_ceegc"]
 [ext_resource type="AudioStream" uid="uid://c8f8ef4wcm02a" path="res://Assets/Voice/peter-book of the damned.mp3" id="14_nsai0"]
-[ext_resource type="AudioStream" uid="uid://dlrw370wkb6cd" path="res://Assets/Voice/peter-note2.mp3" id="14_sjmaf"]
 [ext_resource type="AudioStream" uid="uid://dowinkfeweigw" path="res://Assets/Voice/peter-mandrake.mp3" id="14_tjmwx"]
-[ext_resource type="AudioStream" uid="uid://7wwlg706mhpf" path="res://Assets/Voice/peter-note3.mp3" id="15_2pf61"]
-[ext_resource type="AudioStream" uid="uid://b2yuh4of15n1q" path="res://Assets/Voice/peter-note4.mp3" id="16_gg5yx"]
+[ext_resource type="AudioStream" uid="uid://bd415rir1w1e1" path="res://Assets/Voice/note-2.mp3" id="15_lbv8m"]
+[ext_resource type="AudioStream" uid="uid://chtatwa51ax0h" path="res://Assets/Voice/note-4.mp3" id="16_kygdb"]
 [ext_resource type="AudioStream" uid="uid://bi3acy5ouga4e" path="res://Assets/Voice/peter-ouch.mp3" id="25_y01vt"]
 [ext_resource type="AudioStream" uid="uid://d2gxwdhef7ha3" path="res://Assets/Voice/peter-there you are.mp3" id="26_nm6am"]
 [ext_resource type="AudioStream" uid="uid://byidu2mv4dkcw" path="res://Assets/Voice/peter-fill alter.mp3" id="26_t3eih"]
@@ -313,6 +314,9 @@ script = ExtResource("2_hksi0")
 [node name="Hallway" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23617, 0.0359006, -0.0339421)
 
+[node name="StaticBody3D" parent="FrontDoor" index="0"]
+script = ExtResource("3_w4yb8")
+
 [node name="Ceiling" parent="." index="5"]
 visible = false
 
@@ -456,7 +460,7 @@ Description = "[i]It looks like a page from a diary[/i]
 08/06/1897
 
 I made sure to give the butler a piece of my mind today.  I'm not sure how incompetent you have to be to confuse [color=orange]orange[/color] and [color=magenta]magenta[/color] but we obviously want the latter colored cake served first for my cousin's birthday."
-Voice = ExtResource("13_6ajft")
+Voice = ExtResource("13_k41fu")
 AudioPlayer = NodePath("../AudioStreamPlayer")
 
 [node name="Note2" parent="." index="34" node_paths=PackedStringArray("AudioPlayer") instance=ExtResource("6_wk641")]
@@ -466,7 +470,7 @@ Description = "[i]It looks like a page from a diary[/i]
 04/11/1893
 
 Went on a nice walk through the gardens this morning.  The sky was a nice clear [color=#61927b]blue[/color] and I'm starting to see the flowers come in."
-Voice = ExtResource("14_sjmaf")
+Voice = ExtResource("14_ceegc")
 AudioPlayer = NodePath("../AudioStreamPlayer")
 
 [node name="Note3" parent="." index="35" node_paths=PackedStringArray("AudioPlayer") instance=ExtResource("6_wk641")]
@@ -476,7 +480,7 @@ Description = "[i]The page is stained by something, only small pieces are legibl
 03... ...01
 
 ...ervous abo... ...uet we have planned.  I've made su... ...ariety of wi... ...guests but I know how picky th..."
-Voice = ExtResource("15_2pf61")
+Voice = ExtResource("15_lbv8m")
 AudioPlayer = NodePath("../AudioStreamPlayer")
 
 [node name="Note4" parent="." index="36" node_paths=PackedStringArray("AudioPlayer") instance=ExtResource("6_wk641")]
@@ -486,7 +490,7 @@ Description = "[i]It looks like a page from a diary[/i]
 12/19/1904
 
 I don't usually care about things like Christmas but father told me he had a special surprise for me this year.  I wonder what it could be?  It's probably something expensive, maybe some kind of jewelry?"
-Voice = ExtResource("16_gg5yx")
+Voice = ExtResource("16_kygdb")
 AudioPlayer = NodePath("../AudioStreamPlayer")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="bd1_Lamp_004" index="0" node_paths=PackedStringArray("AudioPlayer")]

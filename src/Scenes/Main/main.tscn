@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=9 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_8bv5e"]
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
@@ -18,6 +18,9 @@ size = Vector3(3.2433, 1, 6.83463)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ko1m"]
 size = Vector3(21.8679, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bomgy"]
+size = Vector3(8.44423, 6.20375, 4.60201)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_8bv5e")
 
@@ -25,7 +28,7 @@ script = ExtResource("1_8bv5e")
 environment = SubResource("Environment_4wx4y")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.8477, 4.72143, -20.6999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2443, 4.72143, -18.0435)
 floor_max_angle = 0.872665
 
 [node name="Mansion" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_xdw2q")]
@@ -50,15 +53,17 @@ omni_range = 15.0
 [node name="DeskLamp2" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.4621, 8.23479, -20.7184)
 light_color = Color(1, 0.611765, 0.337255, 1)
-omni_range = 15.0
+omni_range = 8.0
 
 [node name="CandleLight" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5083, 10.1519, -28.5705)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="CandleLight2" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.542, 10.1519, -28.5705)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="FakeLight" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0562, 8.09676, -15.4715)
@@ -86,24 +91,27 @@ omni_range = 10.0
 [node name="CandleLight3" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.7407, 10.1519, -28.5705)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="CandleLight4" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.6764, 10.1519, -28.5705)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="CandleLight5" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.5419, 10.155, -14.4721)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="CandleLight6" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.6443, 10.5413, -14.45)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="FakeLight3" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.0661, 9.00155, -20.8754)
 light_color = Color(1, 0.611765, 0.337255, 1)
 light_energy = 0.5
-omni_range = 8.0
 
 [node name="SpookyLight" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.1725, 11.0576, -21.3019)
@@ -114,25 +122,29 @@ omni_range = 10.0
 [node name="CandleLight7" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.3897, 10.087, -16.5162)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="CandleLight8" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.3897, 10.087, -25.3395)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="CandleLight9" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.095, 10.5413, -17.4953)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="CandleLight10" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.095, 10.5413, -25.9564)
 light_color = Color(1, 0.611765, 0.337255, 1)
+shadow_enabled = true
 
 [node name="SmallCandleLight" type="OmniLight3D" parent="Lighting"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71363, 6.62608, -6.47424)
 light_color = Color(1, 0.611765, 0.337255, 1)
 
 [node name="BigCandleLight" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136748, 10.0253, -5.59735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.136748, 11.8223, -5.59735)
 light_color = Color(1, 0.611765, 0.337255, 1)
 omni_range = 15.0
 
@@ -274,5 +286,25 @@ omni_range = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8676, 5.80732, -28.7683)
 shape = SubResource("BoxShape3D_3ko1m")
 
+[node name="TeleportRight" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.577, 4.7, -10.735)
+
+[node name="HallwayRight" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.097, 7.529, -10.735)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HallwayRight"]
+shape = SubResource("BoxShape3D_bomgy")
+
+[node name="TeleportLeft" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8346, 4.7, -10.735)
+
+[node name="HallwayLeft" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0963, 7.529, -10.4807)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HallwayLeft"]
+shape = SubResource("BoxShape3D_bomgy")
+
 [connection signal="body_entered" from="Mansion/ReadyToDie" to="Mansion" method="_on_ready_to_die_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="HallwayRight" to="." method="_on_hallway_right_body_entered"]
+[connection signal="body_entered" from="HallwayLeft" to="." method="_on_hallway_left_body_entered"]

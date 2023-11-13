@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://doubdcst8ccxa"]
 
-[ext_resource type="AudioStream" uid="uid://dydqpvhauygl8" path="res://Assets/BGM/WoW - Naxxramas - Walking.mp3" id="1_7irtx"]
+[ext_resource type="AudioStream" uid="uid://c4ayuokykkbot" path="res://Assets/BGM/tabletop_audio_Court_of_the_Count.mp3" id="1_61jst"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_7irtx")
-volume_db = -20.0
+stream = ExtResource("1_61jst")
+volume_db = -16.0
 autoplay = true

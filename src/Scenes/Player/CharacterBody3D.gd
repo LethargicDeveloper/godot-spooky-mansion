@@ -9,15 +9,24 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var head := $Head
 @onready var camera := $Head/Camera3D
 
+var walkingStream: AudioStreamPlayer
+var walkingSFX := preload("res://Assets/SFX/walking.mp3")
+
 var cameraLocked := false
 
 func _ready() -> void:
 	SignalManager.CameraLock.connect(self.HandleCameraLock)
 	SignalManager.LockScreen.connect(self.HandleLockScreen)
+	walkingStream = AudioStreamPlayer.new()
+	walkingStream.set_stream(walkingSFX)
+	add_child(walkingStream)
 
 func HandleLockScreen(lock: bool) -> void:
 	set_process_input(!lock)
 	set_physics_process(!lock)
+	
+	if (!lock):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func HandleCameraLock(state: bool):
 	cameraLocked = state
@@ -62,5 +71,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED * run_speed)
 		velocity.z = move_toward(velocity.z, 0, SPEED * run_speed)
+
+	# SFX
+	if (velocity.x != 0 || velocity.z != 0) and !walkingStream.playing:
+		walkingStream.play()
+	elif velocity.is_zero_approx() and walkingStream.playing:
+		walkingStream.stop()	
+
+	walkingStream.set_pitch_scale(2.0 if running else 1.0)
 
 	move_and_slide()

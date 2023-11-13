@@ -8,6 +8,7 @@ extends Node3D
 @onready var SpookySound1 := preload("res://Assets/Voice/devil-i am awoken.wav")
 @onready var SpookySound2 := preload("res://Assets/Voice/peter-that was spooky.mp3")
 @onready var KeyFound := preload("res://Assets/Voice/peter-found key.mp3")
+@onready var doorSFX := preload("res://Assets/SFX/door-sliding.mp3")
 @onready var inspected_spooky_book: bool = false
 @onready var AudioPlayer := %AudioStreamPlayer
 @onready var AnimPlayer := $AnimationPlayer
@@ -122,6 +123,8 @@ func process_pipe_puzzle() -> void:
 						
 						if !SignalManager.puzzle3_complete:
 							SignalManager.puzzle3_complete = true
+							$AudioStreamPlayer.set_stream(doorSFX)
+							$AudioStreamPlayer.play()
 							$AnimationPlayer.play("empty_blood")
 							await $AnimationPlayer.animation_finished
 					else:
