@@ -22,12 +22,12 @@ func HandleKeyStatus(state) -> void:
 	canOpen = state
 
 func can_interact() -> bool:
-	return true
+	return !opened
 
 func player_interact() -> void:
-	if (canOpen and !opened):
+	if canOpen and !opened:
 		open_door()
-	else:
+	elif !canOpen:
 		%AudioStreamPlayer.set_stream(lockedSFX)
 		%AudioStreamPlayer.play()
 
@@ -51,6 +51,5 @@ func open_door() -> void:
 	var tween = create_tween()
 	tween.parallel().tween_property(parent, "position", parent.position + OpenPositionVector, 2.5)
 	tween.parallel().tween_property(parent, "rotation_degrees", parent.rotation + OpenRotationVector, 2.5)
-	
 	tween.parallel().tween_property(DoorNode, "position", DoorNode.position + OpenPositionVector, 2.5)
 	tween.parallel().tween_property(DoorNode, "rotation_degrees", parent.rotation + OpenRotationVector, 2.5)
