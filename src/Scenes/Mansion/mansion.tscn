@@ -299,6 +299,20 @@ tracks/4/keys = {
 "times": PackedFloat32Array(4.1)
 }
 tracks/4/use_blend = true
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../AnimationPlayer/Timer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(13.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [-1],
+"method": &"start"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrn81"]
 _data = {
@@ -773,6 +787,10 @@ libraries = {
 "": SubResource("AnimationLibrary_qrn81")
 }
 
+[node name="Timer" type="Timer" parent="AnimationPlayer" index="0"]
+wait_time = 2.0
+one_shot = true
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="107"]
 unique_name_in_owner = true
 
@@ -787,9 +805,12 @@ grow_vertical = 2
 color = Color(0.698039, 0.14902, 0.129412, 0)
 
 [node name="Brother" parent="." index="109"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2232, 0.032515, -55.7124)
+transform = Transform3D(0.219433, 0.0749626, 0.972743, -0.0530364, 0.996486, -0.0648282, -0.974185, -0.0373654, 0.222638, -2.31226, 0.032515, -55.5974)
 
 [node name="Marker3D" type="Marker3D" parent="Brother" index="0"]
 transform = Transform3D(1, -2.6077e-08, 8.9407e-08, 0, 1, 8.3819e-09, 0, 2.51457e-08, 1, 1.09819, 2.21536, -0.305312)
 
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." index="110"]
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="AnimationPlayer/Timer" to="." method="_on_timer_timeout"]

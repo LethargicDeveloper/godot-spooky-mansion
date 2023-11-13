@@ -140,6 +140,7 @@ func process_pipe_puzzle() -> void:
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and not game_over:
+		$AnimationPlayer/Timer.stop()
 		game_over = true
 		AnimPlayer.play("game_over")
 		await AnimPlayer.animation_finished
@@ -158,7 +159,9 @@ func pickup_cup() -> void:
 
 func _on_ready_to_die_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and ready_to_die:
-		# TODO:
-		var audio = load("res://Assets/Voice/peter-ugh.mp3")
-		$AudioStreamPlayer.set_stream(audio)
-		$AudioStreamPlayer.play()
+		SignalManager.GameOver.emit()
+
+func _on_timer_timeout() -> void:
+	var stream = load("res://Assets/Voice/mason-hurry up.mp3")
+	$AudioStreamPlayer2.set_stream(stream)
+	$AudioStreamPlayer2.play()

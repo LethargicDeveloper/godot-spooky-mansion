@@ -1,9 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=19 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_8bv5e"]
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
 [ext_resource type="PackedScene" uid="uid://oyqol1ndp7g6" path="res://Scenes/Interactables/ObjectViewer/object_viewer.tscn" id="4_f0don"]
+[ext_resource type="AudioStream" uid="uid://b6x57cbekq161" path="res://Assets/Voice/mason-glug glug glug.mp3" id="5_8jrxn"]
 [ext_resource type="PackedScene" uid="uid://b5jrgxlad0x4l" path="res://Scenes/Mansion/mansion.tscn" id="5_xdw2q"]
+[ext_resource type="AudioStream" uid="uid://cjcyvptt212ts" path="res://Assets/Voice/mason-this may sting a little.mp3" id="6_mni3p"]
+[ext_resource type="AudioStream" uid="uid://cvj8f67niypya" path="res://Assets/Voice/peter-ugh.mp3" id="7_o4qqu"]
+[ext_resource type="AudioStream" uid="uid://rstmljd1drql" path="res://Assets/Voice/growl.wav" id="8_qep67"]
+[ext_resource type="AudioStream" uid="uid://4avgpo600ved" path="res://Assets/Voice/blood god-i am alive.wav" id="8_w78pi"]
+[ext_resource type="AudioStream" uid="uid://87i3evjdmtc2" path="res://Assets/Voice/mason-hello.mp3" id="9_c4840"]
+[ext_resource type="AudioStream" uid="uid://c3do0l26knul" path="res://Assets/Voice/stabbing.mp3" id="11_b5w3k"]
 
 [sub_resource type="Environment" id="Environment_4wx4y"]
 background_mode = 1
@@ -21,6 +28,93 @@ size = Vector3(21.8679, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bomgy"]
 size = Vector3(8.44423, 6.20375, 4.60201)
 
+[sub_resource type="Animation" id="Animation_60jvy"]
+resource_name = "sacrifice"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.745, 4.514, -54.027)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_8jrxn")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_mni3p")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_o4qqu")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_qep67")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_w78pi")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_c4840")
+}],
+"times": PackedFloat32Array(1.5, 6.7, 10, 19.9, 28, 30.4)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_b5w3k")
+}],
+"times": PackedFloat32Array(8.8)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_ln0kk"]
+resource_name = "reset"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(26.3903, 4.514, -21.0157)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2qntg"]
+_data = {
+"reset": SubResource("Animation_ln0kk"),
+"sacrifice": SubResource("Animation_60jvy")
+}
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_8bv5e")
 
@@ -28,7 +122,7 @@ script = ExtResource("1_8bv5e")
 environment = SubResource("Environment_4wx4y")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.33, 4.51401, -20.9677)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.3903, 4.514, -21.0157)
 floor_max_angle = 0.872665
 
 [node name="Mansion" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_xdw2q")]
@@ -280,6 +374,8 @@ omni_range = 10.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
@@ -303,6 +399,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0963, 7.529, -10.4807)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HallwayLeft"]
 shape = SubResource("BoxShape3D_bomgy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2qntg")
+}
+
+[node name="PlaceToDie" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.745364, 2.41731, -54.0269)
 
 [connection signal="body_entered" from="Mansion/ReadyToDie" to="Mansion" method="_on_ready_to_die_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
