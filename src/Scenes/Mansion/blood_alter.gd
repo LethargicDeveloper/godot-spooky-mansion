@@ -11,7 +11,7 @@ func can_interact() -> bool:
 
 func player_interact() -> void:
 	if (!activated):
-		activated = true
 		player.play("fill_blood")
-		$"../..".process_pipe_puzzle()
 		await player.animation_finished
+		activated = true
+		$"../..".process_pipe_puzzle()

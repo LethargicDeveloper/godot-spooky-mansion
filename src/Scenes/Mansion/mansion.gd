@@ -15,6 +15,7 @@ extends Node3D
 
 var game_over: bool = false
 var ready_to_die: bool = false
+var on_alter: bool = false
 
 var pipes: Array[Node]
 var bloods: Dictionary
@@ -28,7 +29,7 @@ func _ready() -> void:
 	for pipe in pipes:
 		pipe.rotate_pipe.connect(process_pipe_puzzle)
 		var pipe_parent = pipe.get_parent().name
-		bloods[pipe_parent] = false
+		bloods[pipe_parent] = Vector2(0, 0)
 
 func on_key_collected(collected: bool) -> void:
 	if collected:
@@ -51,92 +52,158 @@ func on_spooky_book_inspected() -> void:
 
 func process_pipe_puzzle() -> void:
 	if BloodAlter.activated:
+		for blood in bloods:
+			bloods[blood] = Vector2(0, bloods[blood].y)
+		
 		for i in 16:
 			for pipe in pipes:
 				var pipe_parent = pipe.get_parent().name
 				var blood = get_node(pipe_parent + "_blood")
+				var rot = blood.rotation_degrees.y
+
+				if pipe_parent == "Pipe_1x1":
+					if rot == 0 or rot == 270 or check_pipe(rot, [90, 180], "Pipe_2x1", [90, 180]):
+						bloods[pipe_parent] = Vector2(1, rot)
+						blood.show()
+					else:
+						bloods[pipe_parent] = Vector2(0, rot)
+						blood.hide()
 
 				if pipe_parent == "Pipe_1x2":
-					bloods[pipe_parent] = true
+					bloods[pipe_parent] = Vector2(1, rot)
 					blood.show()
 
 				if pipe_parent == "Pipe_1x3":
-					if blood.rotation_degrees.y != 0:
-						bloods[pipe_parent] = true
+					if rot != 0 or check_pipe(rot, [0], "Pipe_1x4", [90, 180]) or check_pipe(rot, [0, 180, 270], "Pipe_2x3", [90, 180, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
 						blood.show()
 					else:
-						bloods[pipe_parent] = false
+						bloods[pipe_parent] = Vector2(0, rot)
+						blood.hide()
+						
+				if pipe_parent == "Pipe_1x4":
+					if check_pipe(rot, [90, 180], "Pipe_1x3", [0, 90, 270]) or check_pipe(rot, [180, 270], "Pipe_2x4", [0, 90]):
+						bloods[pipe_parent] = Vector2(1, rot)
+						blood.show()
+					else:
+						bloods[pipe_parent] = Vector2(0, rot)
+						blood.hide()
+						
+				if pipe_parent == "Pipe_2x1":
+					if check_pipe(rot, [90, 270], "Pipe_1x1", [180, 270]) or check_pipe(rot, [0, 180], "Pipe_2x2", [90, 270]) or check_pipe(rot, [90, 270], "Pipe_3x1", [0, 180, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
+						blood.show()
+					else:
+						bloods[pipe_parent] = Vector2(0, rot)
 						blood.hide()
 
 				if pipe_parent == "Pipe_2x2":
-					if blood.rotation_degrees.y == 0 or blood.rotation_degrees.y == 180:
-						bloods[pipe_parent] = true
+					if rot == 0 or rot == 180 or check_pipe(rot, [90, 270], "Pipe_2x3", [0, 180, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
 						blood.show()
 					else:
-						bloods[pipe_parent] = false
+						bloods[pipe_parent] = Vector2(0, rot)
 						blood.hide()
 
 				if pipe_parent == "Pipe_2x3":
-					if blood.rotation_degrees.y == 90 or blood.rotation_degrees.y == 180 and bloods["Pipe_1x3"]:
-						bloods[pipe_parent] = true
+					if check_pipe(rot, [0, 180, 270], "Pipe_2x2", [90, 270]) or check_pipe(rot, [0, 90, 270], "Pipe_3x3", [90, 270]) or check_pipe(rot, [90, 180, 270], "Pipe_1x3", [0, 180, 270]) or check_pipe(rot, [0, 90, 180], "Pipe_2x4", [90, 180]):
+						bloods[pipe_parent] = Vector2(1, rot)
 						blood.show()
 					else:
-						bloods[pipe_parent] = false
+						bloods[pipe_parent] = Vector2(0, rot)
 						blood.hide()
 
 				if pipe_parent == "Pipe_2x4":
-					if blood.rotation_degrees.y == 180 and bloods["Pipe_1x3"] and bloods["Pipe_2x3"]:
-						bloods[pipe_parent] = true
+					if check_pipe(rot, [0, 90], "Pipe_1x4", [180, 270]) or check_pipe(rot, [90, 180], "Pipe_2x3", [0, 90, 180]) or check_pipe(rot, [180, 270], "Pipe_3x4", [90, 180, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
 						blood.show()
 					else:
-						bloods[pipe_parent] = false
+						bloods[pipe_parent] = Vector2(0, rot)
+						blood.hide()
+
+				if pipe_parent == "Pipe_3x1":
+					if check_pipe(rot, [0, 180, 270], "Pipe_2x1", [90, 270]) or check_pipe(rot, [90, 180, 270], "Pipe_3x2", [90, 270]) or check_pipe(rot, [0, 90, 180], "Pipe_4x1", [270]):
+						bloods[pipe_parent] = Vector2(1, rot)
+						blood.show()
+					else:
+						bloods[pipe_parent] = Vector2(0, rot)
 						blood.hide()
 
 				if pipe_parent == "Pipe_3x2":
-					if blood.rotation_degrees.y == 180 and bloods["Pipe_2x2"]:
-						bloods[pipe_parent] = true
+					if check_pipe(rot, [0, 270], "Pipe_3x1", [90, 180, 270]) or check_pipe(rot, [0, 90], "Pipe_4x2", [0, 90, 180, 270]) or check_pipe(rot, [90, 180], "Pipe_3x3", [0, 180]) or check_pipe(rot, [180, 270], "Pipe_2x2", [0, 180]):
+						bloods[pipe_parent] = Vector2(1, rot)
 						blood.show()
 					else:
-						bloods[pipe_parent] = false
+						bloods[pipe_parent] = Vector2(0, rot)
 						blood.hide()
 
 				if pipe_parent == "Pipe_3x3":
-					if (blood.rotation_degrees.y == 0 or blood.rotation_degrees.y == 180) and (bloods["Pipe_2x2"] and bloods["Pipe_3x2"]):
-						bloods[pipe_parent] = true
+					if check_pipe(rot, [0, 180], "Pipe_3x2", [90, 180]) or check_pipe(rot, [0, 180], "Pipe_3x4", [0, 180, 270]) or check_pipe(rot, [90, 270], "Pipe_2x3", [0, 90, 270]) or check_pipe(rot, [90, 270], "Pipe_4x3", [0, 90, 180]):
+						bloods[pipe_parent] = Vector2(1, rot)
 						blood.show()
 					else:
-						bloods[pipe_parent] = false
+						bloods[pipe_parent] = Vector2(0, rot)
 						blood.hide()
 
 				if pipe_parent == "Pipe_3x4":
-					if ((blood.rotation_degrees.y == 0 or blood.rotation_degrees.y == 270) and (bloods["Pipe_2x2"] and bloods["Pipe_3x2"] and bloods["Pipe_3x3"])) or ((blood.rotation_degrees.y == 90 or blood.rotation_degrees.y == 270) and (bloods["Pipe_1x3"] and bloods["Pipe_2x3"] and bloods["Pipe_2x4"])):
-						bloods[pipe_parent] = true
+					if check_pipe(rot, [0, 180, 270], "Pipe_3x3", [0, 180]) or check_pipe(rot, [90, 180, 270], "Pipe_2x4", [180, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
 						blood.show()
 					else:
-						bloods[pipe_parent] = false
+						bloods[pipe_parent] = Vector2(0, rot)
+						blood.hide()
+
+				if pipe_parent == "Pipe_4x1":
+					if check_pipe(rot, [0, 270], "Pipe_3x1", [0, 90, 180]) or check_pipe(rot, [180, 270], "Pipe_4x2", [0, 90, 180, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
+						blood.show()
+					else:
+						bloods[pipe_parent] = Vector2(0, rot)
+						blood.hide()
+
+				if pipe_parent == "Pipe_4x2":
+					if check_pipe(rot, [0, 90, 180, 270], "Pipe_4x1", [180, 270]) or check_pipe(rot, [0, 90, 180, 270], "Pipe_3x2", [0, 90]) or check_pipe(rot, [0, 90, 180, 270], "Pipe_4x3", [90, 180, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
+						blood.show()
+					else:
+						bloods[pipe_parent] = Vector2(0, rot)
+						blood.hide()
+
+				if pipe_parent == "Pipe_4x3":
+					if check_pipe(rot, [90, 180, 270], "Pipe_4x2", [0, 90, 180, 270]) or check_pipe(rot, [0, 90, 180], "Pipe_3x3", [90, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
+						blood.show()
+					else:
+						bloods[pipe_parent] = Vector2(0, rot)
 						blood.hide()
 
 				if pipe_parent == "Pipe_4x4":
-					if (blood.rotation_degrees.y == 90 or blood.rotation_degrees.y == 270) and ((bloods["Pipe_2x2"] and bloods["Pipe_3x2"] and bloods["Pipe_3x3"] and bloods["Pipe_3x4"]) or (bloods["Pipe_1x3"] and bloods["Pipe_2x3"] and bloods["Pipe_2x4"] and bloods["Pipe_3x4"])):
-						bloods[pipe_parent] = true
+					if check_pipe(rot, [0, 180], "Pipe_4x3", [0, 90, 270]) or check_pipe(rot, [90, 270], "Pipe_3x4", [0, 90, 270]):
+						bloods[pipe_parent] = Vector2(1, rot)
 						blood.show()
 						
-						if !SignalManager.puzzle3_complete:
+						if (rot == 90 or rot == 270) and !SignalManager.puzzle3_complete:
 							SignalManager.puzzle3_complete = true
 							$AudioStreamPlayer.set_stream(doorSFX)
 							$AudioStreamPlayer.play()
 							$AnimationPlayer.play("empty_blood")
 							await $AnimationPlayer.animation_finished
+
 					else:
-						bloods[pipe_parent] = false
+						bloods[pipe_parent] = Vector2(0, rot)
 						blood.hide()
-		
+
 		if SignalManager.puzzle3_complete:
 			for pipe in pipes:
 				var pipe_parent = pipe.get_parent().name
 				var blood = get_node(pipe_parent + "_blood")
 				blood.hide()
 
+func check_pipe(rot: int, rot1: Array[int], pipe: String, rot2: Array[int]) -> bool:
+	var a = rot1.any(func(y): return y == rot)
+	var b = bloods[pipe].x and (rot2.any(func(y): return y == bloods[pipe].y))
+	
+	return a and b
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and not game_over:
@@ -159,9 +226,12 @@ func pickup_cup() -> void:
 
 func _on_ready_to_die_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and ready_to_die:
+		on_alter = true
+		$AudioStreamPlayer2.stop()
 		SignalManager.GameOver.emit()
 
 func _on_timer_timeout() -> void:
-	var stream = load("res://Assets/Voice/mason-hurry up.mp3")
-	$AudioStreamPlayer2.set_stream(stream)
-	$AudioStreamPlayer2.play()
+	if !on_alter:
+		var stream = load("res://Assets/Voice/mason-hurry up.mp3")
+		$AudioStreamPlayer2.set_stream(stream)
+		$AudioStreamPlayer2.play()
