@@ -146,14 +146,9 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		
 func pickup_cup() -> void:
 	var chalice = $Chalice
-	var blood = $Chalice_Blood
-	var diff = blood.position - chalice.position
-	
 	chalice.reparent($Brother/Marker3D)
 	chalice.position = Vector3.ZERO
-	
-	blood.reparent(chalice)
-	blood.position = diff
+	chalice.rotation = Vector3.ZERO
 
 func _on_ready_to_die_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and ready_to_die:
