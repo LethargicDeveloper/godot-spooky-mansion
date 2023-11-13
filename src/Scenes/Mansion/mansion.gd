@@ -117,7 +117,7 @@ func process_pipe_puzzle() -> void:
 					bloods[pipe_parent] = Vector2(0, rot)
 					blood.hide()
 					
-				if (bloods["Pipe_4x4"].x and (rot == 90 or rot == 270)) and !SignalManager.puzzle3_complete:
+				if (bloods["Pipe_4x4"].x and (bloods["Pipe_4x4"].y == 90 or bloods["Pipe_4x4"].y == 270)) and !SignalManager.puzzle3_complete:
 					SignalManager.puzzle3_complete = true
 					$AudioStreamPlayer.set_stream(doorSFX)
 					$AudioStreamPlayer.play()

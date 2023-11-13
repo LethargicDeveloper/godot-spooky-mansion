@@ -820,7 +820,7 @@ grow_vertical = 2
 color = Color(0.698039, 0.14902, 0.129412, 0)
 
 [node name="Brother" parent="." index="109"]
-transform = Transform3D(0.854845, 0.0788627, 0.512856, -0.173203, 0.975062, 0.138764, -0.489123, -0.20745, 0.847185, -11.6058, 0.032515, -50.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2232, 0.032515, -55.7124)
 
 [node name="Marker3D" type="Marker3D" parent="Brother" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, -2.51457e-08, 0, 2.51457e-08, 1, 1.09819, 2.21536, -0.305312)

@@ -9,12 +9,12 @@ var looked_out_window := false
 func _ready() -> void:
 	SignalManager.GameOver.connect(game_over)
 	
-	#SignalManager.LockScreen.emit(true)
-	#var stream = preload("res://Assets/Voice/peter-waking up.mp3")
-	#$AudioStreamPlayer.set_stream(stream)
-	#$AudioStreamPlayer.play()
-	#await $AudioStreamPlayer.finished
-	#SignalManager.LockScreen.emit(false)
+	SignalManager.LockScreen.emit(true)
+	var stream = preload("res://Assets/Voice/peter-waking up.mp3")
+	$AudioStreamPlayer.set_stream(stream)
+	$AudioStreamPlayer.play()
+	await $AudioStreamPlayer.finished
+	SignalManager.LockScreen.emit(false)
 
 func game_over() -> void:
 	SignalManager.LockScreen.emit(true)
