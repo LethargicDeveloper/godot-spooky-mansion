@@ -37,7 +37,7 @@ func on_key_collected(collected: bool) -> void:
 
 func on_spooky_book_inspected() -> void:
 	if (!inspected_spooky_book):
-		#inspected_spooky_book = true
+		inspected_spooky_book = true
 		await $AudioStreamPlayer.finished
 		var player = AudioStreamPlayer.new()
 		add_child(player)

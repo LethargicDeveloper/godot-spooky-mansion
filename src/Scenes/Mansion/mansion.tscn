@@ -23,8 +23,8 @@
 [ext_resource type="AudioStream" uid="uid://f2f711qgb4gv" path="res://Assets/Voice/note-3.mp3" id="14_ceegc"]
 [ext_resource type="AudioStream" uid="uid://c8f8ef4wcm02a" path="res://Assets/Voice/peter-book of the damned.mp3" id="14_nsai0"]
 [ext_resource type="AudioStream" uid="uid://dowinkfeweigw" path="res://Assets/Voice/peter-mandrake.mp3" id="14_tjmwx"]
-[ext_resource type="AudioStream" uid="uid://bd415rir1w1e1" path="res://Assets/Voice/note-2.mp3" id="15_lbv8m"]
 [ext_resource type="AudioStream" uid="uid://chtatwa51ax0h" path="res://Assets/Voice/note-4.mp3" id="16_kygdb"]
+[ext_resource type="AudioStream" uid="uid://dqqx1ofu2ssiq" path="res://Assets/Voice/note-2.ogg" id="16_opo0r"]
 [ext_resource type="AudioStream" uid="uid://bi3acy5ouga4e" path="res://Assets/Voice/peter-ouch.mp3" id="25_y01vt"]
 [ext_resource type="AudioStream" uid="uid://d2gxwdhef7ha3" path="res://Assets/Voice/peter-there you are.mp3" id="26_nm6am"]
 [ext_resource type="AudioStream" uid="uid://byidu2mv4dkcw" path="res://Assets/Voice/peter-fill alter.mp3" id="26_t3eih"]
@@ -480,7 +480,7 @@ Description = "[i]The page is stained by something, only small pieces are legibl
 03... ...01
 
 ...ervous abo... ...uet we have planned.  I've made su... ...ariety of wi... ...guests but I know how picky th..."
-Voice = ExtResource("15_lbv8m")
+Voice = ExtResource("16_opo0r")
 AudioPlayer = NodePath("../AudioStreamPlayer")
 
 [node name="Note4" parent="." index="36" node_paths=PackedStringArray("AudioPlayer") instance=ExtResource("6_wk641")]

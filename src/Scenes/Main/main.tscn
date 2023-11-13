@@ -28,7 +28,7 @@ script = ExtResource("1_8bv5e")
 environment = SubResource("Environment_4wx4y")
 
 [node name="Player" parent="." instance=ExtResource("1_dhn0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2443, 4.72143, -18.0435)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.33, 4.51401, -20.9677)
 floor_max_angle = 0.872665
 
 [node name="Mansion" parent="." node_paths=PackedStringArray("Player") instance=ExtResource("5_xdw2q")]
