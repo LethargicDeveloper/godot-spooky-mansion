@@ -24,13 +24,15 @@ func _ready() -> void:
 func HandleLockScreen(lock: bool) -> void:
 	set_process_input(!lock)
 	set_physics_process(!lock)
-	
+	walkingStream.stop()
+
 	if (!lock):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func HandleCameraLock(state: bool):
 	cameraLocked = state
-	
+	walkingStream.stop()
+
 	if (state):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

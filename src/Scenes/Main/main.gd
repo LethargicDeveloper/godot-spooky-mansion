@@ -29,23 +29,24 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_hallway_right_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		if not has_teleported:
-			playSFX()
-			has_teleported = true
+		playSFX()
+
 		$Player.transform = $TeleportLeft.transform
 
 func _on_hallway_left_body_entered(body: Node3D) -> void:
 	if body.name == "Player":
-		if not has_teleported:
-			playSFX()
-			has_teleported = true
+		playSFX()
+
 		$Player.transform = $TeleportRight.transform
 
 func playSFX() -> void:
 	$AudioStreamPlayer.set_stream(teleportSFX)
 	$AudioStreamPlayer.play()
 
-	await $AudioStreamPlayer.finished
+	if not has_teleported:
+		has_teleported = true
 
-	$AudioStreamPlayer.set_stream(teleportVoice)
-	$AudioStreamPlayer.play()
+		await $AudioStreamPlayer.finished
+		
+		$AudioStreamPlayer.set_stream(teleportVoice)
+		$AudioStreamPlayer.play()

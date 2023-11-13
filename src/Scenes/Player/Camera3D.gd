@@ -9,6 +9,8 @@ var mouse := Vector2()
 var cameraLocked := false
 var hasKey := false
 
+const INTERACT_RANGE := 5
+
 func _ready():
 	SignalManager.CameraLock.connect(self.HandleCameraLock)
 	SignalManager.KeyStatus.connect(self.HandleKeyStatus)
@@ -53,7 +55,7 @@ func _input(event):
 func get_selection() -> Dictionary:
 	var worldspace := get_world_3d().direct_space_state
 	var start := project_ray_origin(mouse)
-	var end := project_position(mouse, 1000)
+	var end := project_position(mouse, INTERACT_RANGE)
 	var result := worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
 	return result
 
