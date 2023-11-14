@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://5srpcvjowh32"]
+
+[ext_resource type="Texture2D" uid="uid://bm3kmxlnvvffn" path="res://Assets/mansion.png" id="1_nffs0"]
+[ext_resource type="Texture2D" uid="uid://ijv864t3jdbg" path="res://Assets/spooky mansion.png" id="2_6jjv0"]
+[ext_resource type="Shader" uid="uid://cvhqqnubtbj72" path="res://Scenes/TitleScreen/title_screen.tres" id="2_fwoll"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w5cbe"]
+shader = ExtResource("2_fwoll")
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="bg" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nffs0")
+expand_mode = 1
+
+[node name="title" type="TextureRect" parent="CanvasLayer"]
+texture_filter = 2
+material = SubResource("ShaderMaterial_w5cbe")
+anchors_preset = -1
+anchor_left = 0.148
+anchor_top = 0.142
+anchor_right = 0.852
+anchor_bottom = 0.301
+offset_left = 0.503998
+offset_top = -0.0160065
+offset_right = -0.504089
+offset_bottom = -0.0480194
+grow_horizontal = 2
+texture = ExtResource("2_6jjv0")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Start Game"
+flat = true
+
+[node name="QuickButton" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit
+"
+flat = true

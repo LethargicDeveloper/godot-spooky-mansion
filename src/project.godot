@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Spooky Puzzle Mansion"
-run/main_scene="res://Scenes/Main/main.tscn"
+run/main_scene="res://Scenes/TitleScreen/title_screen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Bgm="*res://Scenes/Global/BGM.tscn"
 SignalManager="*res://Scenes/Global/SignalManager.gd"
+SceneTransition="*res://Scenes/Global/SceneTransition.tscn"
 
 [display]
 
