@@ -37,6 +37,8 @@ func game_over() -> void:
 	await tween.finished
 	
 	$AnimationPlayer.play("sacrifice")
+	await $AnimationPlayer.animation_finished
+	SceneTransition.transition_to("res://Scenes/Credits/credits.tscn")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if !looked_out_window and body.name == "Player":
@@ -68,3 +70,18 @@ func playSFX() -> void:
 		
 		$AudioStreamPlayer.set_stream(teleportVoice)
 		$AudioStreamPlayer.play()
+
+func start_stabbin() -> void:
+	var brother := $Mansion/Brother
+	
+	var rot_speed := 10
+	var angle := 60
+	var time := angle / rot_speed
+	
+	var start_y = brother.rotation_degrees
+	var end_y = brother.rotation_degrees + Vector3(0, angle, 0)
+	
+	var tween = create_tween().set_loops()
+	tween.tween_property(brother, "rotation_degrees", end_y, 0.25).from(start_y)
+	tween.tween_property(brother, "rotation_degrees", start_y, 0.25).from(end_y)
+	tween.play()

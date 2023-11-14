@@ -1,6 +1,8 @@
 extends Node2D
 
 func transition_to(path: String) -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	var scene = load(path)
 	
 	$AnimationPlayer.play("fade")
