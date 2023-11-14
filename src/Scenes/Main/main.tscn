@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cr1wba8ds1wrl"]
+[gd_scene load_steps=21 format=3 uid="uid://cr1wba8ds1wrl"]
 
 [ext_resource type="Script" path="res://Scenes/Main/main.gd" id="1_8bv5e"]
 [ext_resource type="PackedScene" uid="uid://cdybm1bv81v24" path="res://Scenes/Player/player.tscn" id="1_dhn0s"]
@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://cjcyvptt212ts" path="res://Assets/Voice/mason-this may sting a little.mp3" id="6_mni3p"]
 [ext_resource type="AudioStream" uid="uid://cvj8f67niypya" path="res://Assets/Voice/peter-ugh.mp3" id="7_o4qqu"]
 [ext_resource type="AudioStream" uid="uid://rstmljd1drql" path="res://Assets/Voice/growl.wav" id="8_qep67"]
-[ext_resource type="AudioStream" uid="uid://4avgpo600ved" path="res://Assets/Voice/blood god-i am alive.wav" id="8_w78pi"]
 [ext_resource type="AudioStream" uid="uid://87i3evjdmtc2" path="res://Assets/Voice/mason-hello.mp3" id="9_c4840"]
 [ext_resource type="AudioStream" uid="uid://c3do0l26knul" path="res://Assets/Voice/stabbing.mp3" id="11_b5w3k"]
 
@@ -46,25 +45,13 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_60jvy"]
 resource_name = "sacrifice"
 length = 40.0
-tracks/0/type = "value"
+tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Player:position")
+tracks/0/path = NodePath("AudioStreamPlayer")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.745, 1.514, -54.027)]
-}
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -84,33 +71,105 @@ tracks/1/keys = {
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("8_w78pi")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
 "stream": ExtResource("9_c4840")
 }],
-"times": PackedFloat32Array(1.5, 6.7, 10, 19.9, 28, 30.4)
+"times": PackedFloat32Array(0.1, 5.3, 8.6, 18.5, 27.6)
 }
-tracks/1/use_blend = true
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer2")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("11_b5w3k")
 }],
-"times": PackedFloat32Array(8.8)
+"times": PackedFloat32Array(7.4)
 }
-tracks/2/use_blend = true
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(8, 9.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/TextureRect:texture:fill_to")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(9.2, 16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0), Vector2(0.49, 0.49)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(15.3, 16.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Gradient" id="Gradient_ybp3a"]
+colors = PackedColorArray(1, 1, 1, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v1hb3"]
+gradient = SubResource("Gradient_ybp3a")
+width = 1152
+height = 648
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_count = 16
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_1yb51"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("GradientTexture2D_v1hb3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2qntg"]
 _data = {
+"RESET": SubResource("Animation_1yb51"),
 "reset": SubResource("Animation_ln0kk"),
 "sacrifice": SubResource("Animation_60jvy")
 }
@@ -406,7 +465,27 @@ libraries = {
 }
 
 [node name="PlaceToDie" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.745364, 2.41731, -54.0269)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.745364, 2.28266, -55.3517)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_v1hb3")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
 
 [connection signal="body_entered" from="Mansion/ReadyToDie" to="Mansion" method="_on_ready_to_die_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
