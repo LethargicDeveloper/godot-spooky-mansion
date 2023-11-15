@@ -11,7 +11,9 @@ func can_interact() -> bool:
 
 func player_interact() -> void:
 	if (!activated):
+		SignalManager.LockScreen.emit(true)
 		player.play("fill_blood")
 		await player.animation_finished
+		SignalManager.LockScreen.emit(false)
 		activated = true
 		$"../..".process_pipe_puzzle()
