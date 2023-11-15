@@ -23,7 +23,7 @@ SceneTransition="*res://Scenes/Global/SceneTransition.tscn"
 
 [display]
 
-window/size/mode=2
+window/size/mode=3
 
 [dotnet]
 
