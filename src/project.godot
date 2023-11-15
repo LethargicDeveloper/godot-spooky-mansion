@@ -21,6 +21,10 @@ Bgm="*res://Scenes/Global/BGM.tscn"
 SignalManager="*res://Scenes/Global/SignalManager.gd"
 SceneTransition="*res://Scenes/Global/SceneTransition.tscn"
 
+[display]
+
+window/size/mode=4
+
 [dotnet]
 
 project/assembly_name="Spooky Puzzle Mansion"

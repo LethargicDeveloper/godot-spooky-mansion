@@ -43,8 +43,6 @@ func _input(event: InputEvent) -> void:
 	else:
 		if event is InputEventMouseButton:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		elif event.is_action_pressed("Escape"):
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			if event is InputEventMouseMotion:
 				head.rotate_y(-event.relative.x * 0.01)

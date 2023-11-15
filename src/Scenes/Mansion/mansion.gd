@@ -138,6 +138,7 @@ func check_pipe(rot: int, rot1: Array[int], pipe: String, rot2: Array[int]) -> b
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body.name == "Player" and not game_over:
+		SignalManager.BigDoorOpen.emit()
 		$AnimationPlayer/Timer.stop()
 		game_over = true
 		AnimPlayer.play("game_over")

@@ -7,7 +7,7 @@ extends StaticBody3D
 @export var AudioPlayer: AudioStreamPlayer
 
 @onready var MeshInstance := $".."
-@onready var object_viewer := get_tree().get_root().get_node("Main/ObjectViewer")
+@onready var object_viewer := get_tree().get_root().get_node("MainWrapper/Main/ObjectViewer")
 
 @export var attached_objects: Array[Node3D]
 
