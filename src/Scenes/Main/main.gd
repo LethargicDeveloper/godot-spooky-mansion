@@ -10,6 +10,7 @@ func _ready() -> void:
 	SignalManager.GameOver.connect(game_over)
 
 	SignalManager.LockScreen.emit(true)
+	SignalManager.puzzle3_complete = false
 	var stream = preload("res://Assets/Voice/peter-waking up.mp3")
 	$AudioStreamPlayer.set_stream(stream)
 	$AudioStreamPlayer.play()
