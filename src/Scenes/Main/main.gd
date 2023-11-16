@@ -74,9 +74,7 @@ func playSFX() -> void:
 func start_stabbin() -> void:
 	var brother := $Mansion/Brother
 	
-	var rot_speed := 10
 	var angle := 60
-	var time := angle / rot_speed
 	
 	var start_y = brother.rotation_degrees
 	var end_y = brother.rotation_degrees + Vector3(0, angle, 0)

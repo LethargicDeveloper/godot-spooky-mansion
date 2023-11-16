@@ -13,7 +13,7 @@ func _ready() -> void:
 
 var interacted := false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if interacted:
 		%AudioStreamPlayer.set_stream(turnSFX)
 		%AudioStreamPlayer.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://b5jrgxlad0x4l"]
+[gd_scene load_steps=47 format=3 uid="uid://b5jrgxlad0x4l"]
 
 [ext_resource type="PackedScene" uid="uid://ciot3mn2s6pq2" path="res://Assets/Models/Mansion.glb" id="1_1ne3k"]
 [ext_resource type="Script" path="res://Scenes/Mansion/Puzzle1.gd" id="2_5k6i6"]
@@ -330,18 +330,6 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector3(2.51457e-08, 0, 0), Vector3(1.5708, 0, 0), Vector3(2.51457e-08, 0, 0)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../Area3D2:monitoring")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 16),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qrn81"]
 _data = {
@@ -350,9 +338,6 @@ _data = {
 "fill_blood": SubResource("Animation_xdcua"),
 "game_over": SubResource("Animation_5mhkb")
 }
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mpgm7"]
-size = Vector3(176, 45, 86)
 
 [node name="Mansion" instance=ExtResource("1_1ne3k")]
 script = ExtResource("2_hksi0")
@@ -847,14 +832,5 @@ transform = Transform3D(1, 0, 0, 0, 1, -2.51457e-08, 0, 2.51457e-08, 1, 1.09819,
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." index="110"]
 
-[node name="Area3D2" type="Area3D" parent="." index="111"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0159, 13.4357, -33.9055)
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.437754, -12.1737, 32.4029)
-shape = SubResource("BoxShape3D_mpgm7")
-
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="AnimationPlayer/Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Area3D2" to="." method="_on_area_3d_2_body_entered"]
