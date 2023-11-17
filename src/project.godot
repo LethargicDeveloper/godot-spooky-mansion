@@ -10,7 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Spooky Puzzle Mansion"
+config/name="Spooky Mansion"
+config/tags=PackedStringArray("practice")
 run/main_scene="res://Scenes/TitleScreen/title_screen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.png"
@@ -30,6 +31,10 @@ window/size/mode=4
 [dotnet]
 
 project/assembly_name="Spooky Puzzle Mansion"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [input]
 
